@@ -35,7 +35,7 @@ public abstract class FrameManager extends JFrame {
      GridBagLayout gridBag = new GridBagLayout ();
      GridBagConstraints res = new GridBagConstraints ();
      FrameManager self = this;
-     
+     //test modificacion
     
      public FrameManager (){
         
