@@ -214,12 +214,7 @@ public class ViajeDB extends DbManager {
             Date fecha = st.getDate("fechayhora_partida");
             Date hora = st.getTime("fechayhora_partida");
             viaje = new Viaje(id_Viaje,nombreCiudadOrigen,nombreCiudadDestino,gastosAprox,fecha,hora,conductor,lugarDeSalida,mascota,fumador,fechaCreacion);
-         //crear un objeto viaje
-         //setear valores del viaje st.
-         //crear y setear usuario
-         //crear y setear auto
-         //setear en viaje el usuario
-         //setear en el usuario el auto
+        
             resul.add(viaje);
         }
          closeConections();
@@ -317,12 +312,20 @@ public class ViajeDB extends DbManager {
         
         Calificacion calif = null;
         try {   
-             String consulta = "SELECT c.*"+
+            /* String consulta = "SELECT c.*"+
                   " from auto a join viaje_has_usuario vhu"+
                   " on a.id_auto = vhu.Auto_id_Auto"+
                   " join calificacion c on vhu.Auto_id_Auto = c.Viaje_has_Usuario_Auto_id_Auto"+
                   " where a.id_propietario = " + idPropietario+
-                  " Group by Viaje_has_Usuario_Usuario_id_usuario";
+                  " Group by Viaje_has_Usuario_Usuario_id_usuario";*/
+            
+            
+             String consulta ="SELECT c.* "+
+                            "from calificacion c "+
+                            "inner join auto a "+
+                            "on a.id_auto = c.Viaje_has_Usuario_Auto_id_auto "+
+                            "where a.id_propietario="+idPropietario+";";
+            
              System.out.println(consulta);
              ResultSet st = GET_RESULT_SET(consulta);
              
@@ -334,6 +337,8 @@ public class ViajeDB extends DbManager {
             int idUsuario= st.getInt("Viaje_has_Usuario_Usuario_id_usuario");
             calif = new Calificacion(idCal,puntaje,comentario,idViaje,idUsuario,idAuto);
             arrCal.add(calif);
+            System.out.println(calif.getId_calificacion());
+            System.out.println(calif.getComentario());
         }
          closeConections();
         
@@ -348,38 +353,7 @@ public class ViajeDB extends DbManager {
         
     } 
     
-    /* public ArrayList<Calificacion> obtenerCalificacionesConductor (int idAuto, int idPropietario){
-        
-        
-        Calificacion calif = null;
-        try {   
-             String consulta = "SELECT  calificacion.* "+
-                               "from calificacion "+
-                               "where Viaje_has_Usuario_Auto_id_auto ="+idAuto+";";
-             ResultSet st = GET_RESULT_SET(consulta);
-             
-        while (st.next()) {
-            int idCal=st.getInt("id_calificacion");
-            int puntaje = st.getInt("puntuacion");
-            String comentario = st.getString("descripcion");
-            int idViaje = st.getInt("Viaje_has_Usuario_Viaje_id_viaje");
-            int idUsuario= st.getInt("Viaje_has_Usuario_Usuario_id_usuario");
-            calif = new Calificacion(idCal,puntaje,comentario,idViaje,idUsuario,idAuto);
-            arrCal.add(calif);
-        }
-         closeConections();
-        
-       
-        } 
-        catch (SQLException ex) {
-        ex.printStackTrace();
-        }
-        
-      return arrCal;  
-        
-        
-    }  */ 
-    
+  
     
     public void updateViaje(int id,String origen,String destino,double gastos,String fechayHoraPartida, String lugar, int mascota, int fumador,String hoy){
         
@@ -400,25 +374,7 @@ public class ViajeDB extends DbManager {
       
     }
       
-      
-      
-      
-      
-      
-      
-      
-    /*  public final int InsertViaje(String origen,String destino,double gastos,Date fechaSa,Date horaSa, String lugar,boolean mascota,boolean fumador,Date hoy) {
-      
-       int autorizado = 0;
-       
-       
-       String SSQL = "insert into viaje (origen,destino,gastos_aproximados,fechayhora_partida,lugar_salida,mascota,fumador,fecha_creacion) values "+
-               "( '"+origen+"','"+destino+"',"+gastos+",'"+fechaSa+horaSa+"','"+lugar+"','"+mascota+"',' ','"+fumador+"',"+hoy+");";
-       
-       return super.InsertSql(SSQL);
-       
-    } */  
-     
+    
     
  public void insertViajeHasUsuario(int idViaje,int idUsuario,int idAuto){
            String SSQL = "insert into viaje_has_usuario(Viaje_id_viaje,Usuario_id_usuario,Auto_id_Auto) values "+

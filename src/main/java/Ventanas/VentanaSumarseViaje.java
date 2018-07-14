@@ -535,7 +535,7 @@ public class VentanaSumarseViaje extends FrameManager{
                 else{
                     v.insertarUsuarioEnViaje(id,idUsuarioActual,auto.getId_auto());
                     JOptionPane.showMessageDialog(null, "Operación realizada correctamente. Ya estas sumado al viaje!!!");
-                    self.setVisible(false);
+                    //self.setVisible(false);
                 }
             }
         });
