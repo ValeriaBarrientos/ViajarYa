@@ -17,10 +17,14 @@ Java
 Java JDBC
 Git
 
+
 ## Herramientas
 NetBeans IDE
+easyUML add-on
+MySql Workbench
 DiffMerge
 GitExtensions
+
 
 
 
