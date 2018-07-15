@@ -270,7 +270,7 @@ public class VentanaViajes extends FrameManager{
             @Override
             public void mouseClicked(MouseEvent e) {
                 
-                    VentanaMiAuto va = new VentanaMiAuto(u);
+                    VentanaMisAutos va = new VentanaMisAutos(u);
                      va.setVisible(true);
                      self.setVisible(false);
             }

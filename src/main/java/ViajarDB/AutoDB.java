@@ -124,6 +124,39 @@ public class AutoDB extends DbManager {
     }
     
     
-    
+    public Auto ObtenerDatosAuto (int idAuto){
+        
+     Auto auto = null;
+        
+        try {   
+             String consulta = "select * from auto where id_auto ="+idAuto+" AND cuenta=1";
+             ResultSet st = GET_RESULT_SET(consulta);
+             
+        while (st.next()) {
+            
+            String marca = st.getString("marca");
+            String modelo = st.getString("modelo");
+            String color = st.getString("color");
+            String combustible = st.getString("combustible");
+            boolean aire = st.getBoolean("aireacondicionado");
+            boolean calefaccion = st.getBoolean("calefaccion");
+            short cantAsientos = st.getShort("cantidad_de_asientos");
+            String baul = st.getString("capacidad_de_baul");
+            short calificacion = st.getShort("calificacion");
+            String patente = st.getString("patente");
+            boolean cuenta = st.getBoolean("cuenta");
+            auto = new Auto(idAuto,marca,modelo,color,combustible,patente,aire,calefaccion,cantAsientos,calificacion,baul," ",cuenta);
+           
+        }
+        closeConections();
+      } 
+      catch (SQLException ex) {
+        ex.printStackTrace();
+      }
+        
+      return auto;
+        
+        
+    }
     
 }

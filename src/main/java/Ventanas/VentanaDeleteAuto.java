@@ -99,7 +99,7 @@ public class VentanaDeleteAuto extends FrameManager{
             @Override
             public void mouseClicked(MouseEvent e) {
                 
-                VentanaMiAuto au = new VentanaMiAuto(u);
+                VentanaMisAutos au = new VentanaMisAutos(u);
                 au.setVisible(true);
                 self.setVisible(false);
             }
@@ -116,7 +116,7 @@ public class VentanaDeleteAuto extends FrameManager{
             public void mouseClicked(MouseEvent e) {
                 //llamamos al update de la base de datos para eliminar la cuenta
                 adb.deleteCar(arrAutos.get(aux).getId_auto());
-                VentanaMiAuto au = new VentanaMiAuto(u);
+                VentanaMisAutos au = new VentanaMisAutos(u);
                 au.setVisible(true);
                 self.setVisible(false);
                 

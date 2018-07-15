@@ -434,7 +434,7 @@ public class VentanaAuto extends FrameManager{
                     calefaccion="1";
                 adb.addCar(marca, modelo, color, combustible, patente, aire, calefaccion, cantAsientos, calificacion, baul,id_usuario);
                 JOptionPane.showMessageDialog(self,"El auto se registro satisfactoriamente");
-                VentanaMiAuto va = new VentanaMiAuto(u);
+                VentanaMisAutos va = new VentanaMisAutos(u);
                 va.setVisible(true);
                 self.setVisible(false);
             }
@@ -457,7 +457,7 @@ public class VentanaAuto extends FrameManager{
             @Override
             public void mouseClicked(MouseEvent e) {
                 
-                VentanaMiAuto va = new VentanaMiAuto(u);
+                VentanaMisAutos va = new VentanaMisAutos(u);
                 va.setVisible(true);
                 self.setVisible(false);
                 

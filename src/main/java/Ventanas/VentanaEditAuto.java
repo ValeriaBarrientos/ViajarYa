@@ -484,7 +484,7 @@ public class VentanaEditAuto extends FrameManager{
             @Override
             public void mouseClicked(MouseEvent e) {
                 
-                VentanaMiAuto au = new VentanaMiAuto(u);
+                VentanaMisAutos au = new VentanaMisAutos(u);
                 au.setVisible(true);
                 self.setVisible(false);
             }
@@ -523,7 +523,7 @@ public class VentanaEditAuto extends FrameManager{
                 
                 adb.updateCar(marca, modelo, color, combustible, patente, aire, calefaccion, cantAsientos, calificacion, baul, arrAutos.get(aux).getId_auto());
                 JOptionPane.showMessageDialog(self,"El auto se ha actualizado satisfactoriamente");
-                VentanaMiAuto au = new VentanaMiAuto(u);
+                VentanaMisAutos au = new VentanaMisAutos(u);
                 au.setVisible(true);
                 self.setVisible(false);
                 

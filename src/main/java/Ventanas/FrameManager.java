@@ -32,7 +32,10 @@ import javax.swing.JPanel;
  * @author vale2
  */
 public abstract class FrameManager extends JFrame {
-     GridBagLayout gridBag = new GridBagLayout ();
+     
+    static boolean loguetin=false;
+    static Usuario usuarioActual;
+    GridBagLayout gridBag = new GridBagLayout ();
      GridBagConstraints res = new GridBagConstraints ();
      FrameManager self = this;
      
@@ -65,25 +68,19 @@ public abstract class FrameManager extends JFrame {
         botonContacto.setBorder(null);
         botonContacto.setFont(fuente);
         panelPresent.add(botonContacto);
+        Boton botonSalir=new Boton("Salir");
+        botonSalir.setBorder(null);
+        botonSalir.setFont(fuente);
+        panelPresent.add(botonSalir);
         
          botonInicio.addMouseListener(new MouseAdapter() { 
             
             @Override
             public void mouseEntered(MouseEvent e) {
                 
-                Cursor cursor;
-                //ImageIcon img=new ImageIcon(getClass().getResource("/hand.png"));
-                Toolkit t=Toolkit.getDefaultToolkit();
-                Image img = t.getImage(getClass().getResource("/hand.png"));
-                cursor=t.createCustomCursor(img,new Point(0,0),"Cursor");
-               
-                botonInicio.setCursor(cursor);
+                botonInicio.setForeground(Color.WHITE);
                 
-              //  botonInicio.setForeground(Color.WHITE);
-                
-               // int c = Cursor.HAND_CURSOR;
-                //botonInicio.setCursor(new Cursor(c));
-                
+              
             }
             
             @Override
@@ -95,9 +92,17 @@ public abstract class FrameManager extends JFrame {
              @Override
             public void mouseClicked(MouseEvent e) {
                 
+                if ( loguetin ){
+                    VentanaViajes viajes = new VentanaViajes(usuarioActual);
+                    viajes.setVisible(true);
+                    self.setVisible(false);
+                    
+                }
+                else  {  
                   Present log = new Present();
                   log.setVisible(true);
                   self.setVisible(false);
+                }
             }
                  
                 
@@ -173,7 +178,31 @@ public abstract class FrameManager extends JFrame {
         });
          
          
-    
+          botonSalir.addMouseListener(new MouseAdapter() { 
+            
+            @Override
+            public void mouseEntered(MouseEvent e) {
+              
+                botonSalir.setForeground(Color.WHITE);
+            }
+            
+            @Override
+            public void mouseExited(MouseEvent e) {
+              
+                botonSalir.setForeground(Color.BLACK);
+            }
+            
+            @Override
+            public void mouseClicked(MouseEvent e) {
+              
+                 self.setVisible(false);
+            }
+            
+            
+            
+            
+        });
+          
          
          
          
