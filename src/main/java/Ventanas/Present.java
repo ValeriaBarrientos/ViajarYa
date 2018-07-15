@@ -523,7 +523,7 @@ public class Present extends FrameManager{
                     String ciudad = (String)comboOrigen.getSelectedItem();
                     UsuarioDB u = new UsuarioDB();
                     //UsuarioRegDB usuNewReg = new UsuarioRegDB(nombre, apellido, numTel, direccion, fechaNacSalida, mail, contras, gene, activo, cuenta, Ciudad);
-                    int idUsuario = u.InsertUsuario(nombre,apellido, numTel, direccion, fechaNacSalida, mail,pass, gene, activo, cuenta, ciudad);
+                    int idUsuario = u.InsertUsuario(nombre,apellido, numTel, direccion, fechaNacSalida, mail,pass, gene, activo, ciudad);
                     System.out.println(idUsuario);
                     if(idUsuario != 0){
                         Usuario auxu = u.getUnUsuario(idUsuario);
