@@ -43,8 +43,8 @@ public class UsuarioDB extends DbManager{
          String imagen = st.getString("imagen");
          String genero = st.getString("genero");
          boolean activo = st.getBoolean("activo");
-         boolean cuenta = st.getBoolean("cuenta");
-         Usuario u = new Usuario(id_usuario,nombre,apellido,telefono,direccion,ciudad,fecha_nacimiento,mail,pass,imagen,genero,activo,cuenta);
+        
+         Usuario u = new Usuario(id_usuario,nombre,apellido,telefono,direccion,ciudad,fecha_nacimiento,mail,pass,imagen,genero,activo);
          resul.add(u);
         }
          closeConections();
@@ -99,12 +99,12 @@ public class UsuarioDB extends DbManager{
     }*/
     
     
-      public  final int InsertUsuario(String nombre,String apellido,String telefono,String direccion,String fecha_nacimiento,String mail, String pass,String genero,int activo,int cuenta, String ciudad) {
+      public  final int InsertUsuario(String nombre,String apellido,String telefono,String direccion,String fecha_nacimiento,String mail, String pass,String genero,int activo,String ciudad) {
       
        int autorizado = 0;
        
        String SSQL = "insert into usuario(nombre,apellido,telefono,direccion,fecha_nacimiento,mail,pass,imagen,genero,activo,cuenta,ciudad) values "+
-               "( '"+nombre+"','"+apellido+"','"+telefono+"','"+direccion+"','"+fecha_nacimiento+"','"+mail+"','"+pass+"',' ','"+genero+"',"+activo+","+cuenta+",'"+ciudad+"');";
+               "( '"+nombre+"','"+apellido+"','"+telefono+"','"+direccion+"','"+fecha_nacimiento+"','"+mail+"','"+pass+"',' ','"+genero+"',"+activo+",'"+ciudad+"');";
        
        return super.InsertSql(SSQL);
        
@@ -131,8 +131,8 @@ public class UsuarioDB extends DbManager{
                 String imagen = st.getString("imagen");
                 String genero = st.getString("genero");
                 boolean activo = st.getBoolean("activo");
-                boolean cuenta = st.getBoolean("cuenta");       
-                u = new Usuario(idUsuario,nombre,apellido,telefono,direccion,ciudad,fecha_nacimiento,mail,pass,imagen,genero,activo,cuenta);
+                  
+                u = new Usuario(idUsuario,nombre,apellido,telefono,direccion,ciudad,fecha_nacimiento,mail,pass,imagen,genero,activo);
                 
              }
               closeConections();
