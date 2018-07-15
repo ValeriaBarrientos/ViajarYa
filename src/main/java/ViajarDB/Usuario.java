@@ -27,11 +27,8 @@ public class Usuario {
     private String imagen; 
     private String genero;
     private boolean activo;
-    private boolean cuenta;
-    private ArrayList<Auto> autos= new ArrayList<>();
- //   private ArrayList<Viaje> viajes= new ArrayList<>(); esto va en el administrador
-
-    
+   
+  
     
     //Solo para probrar ventana
     public Usuario(String mail, String pass) {
@@ -52,7 +49,7 @@ public class Usuario {
     
 
     //carga de datos obligatorio
-    public Usuario(int id_usuario, String nombre, String apellido, String telefono, String direccion,String ciudad, Date fecha_de_nacimiento,String mail,  String pass, String genero,boolean activo,boolean cuenta) {
+    public Usuario(int id_usuario, String nombre, String apellido, String telefono, String direccion,String ciudad, Date fecha_de_nacimiento,String mail,  String pass, String genero,boolean activo) {
         this.id_usuario = id_usuario;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -64,12 +61,12 @@ public class Usuario {
         this.pass = pass;
         this.genero = genero;
         this.activo = activo;
-        this.cuenta = cuenta;
+   
     }
     
     
      //carga con imagen
-    public Usuario(int id_usuario, String nombre, String apellido, String telefono, String direccion,String ciudad,Date fecha_nacimiento, String mail,String pass, String imagen, String genero,boolean activo,boolean cuenta) {
+    public Usuario(int id_usuario, String nombre, String apellido, String telefono, String direccion,String ciudad,Date fecha_nacimiento, String mail,String pass, String imagen, String genero,boolean activo) {
         this.id_usuario = id_usuario;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -82,7 +79,7 @@ public class Usuario {
         this.imagen = imagen;
         this.genero = genero;
         this.activo = activo;
-        this.cuenta = cuenta;
+       
        
     }
 
@@ -107,15 +104,7 @@ public class Usuario {
     
     
 
-    public boolean isCuenta() {
-        return cuenta;
-    }
-
-    public void setCuenta(boolean cuenta) {
-        this.cuenta = cuenta;
-    }
-    
-    
+  
 
     public int getId_usuario() {
         return id_usuario;
@@ -197,27 +186,6 @@ public class Usuario {
         this.genero = genero;
     }
 
-    public ArrayList<Auto> getAutos() {
-        return autos;
-    }
-
-    public void setAutos(ArrayList<Auto> autos) {
-        this.autos = autos;
-    }
-
-  /*  public ArrayList<Viaje> getViajes() {
-        return viajes;
-    }
-
-    public void setViajes(ArrayList<Viaje> viajes) {
-        this.viajes = viajes;
-    }
-    
-    esto va admin viajes
-    */
-    
-    
-    
     
     
 
