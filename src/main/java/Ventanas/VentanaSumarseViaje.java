@@ -407,16 +407,7 @@ public class VentanaSumarseViaje extends FrameManager{
         JPanel panelAsientos = new JPanel();
         panelAsientos.setLayout(new FlowLayout(FlowLayout.LEFT,0,0));
         panelAsientos.setBackground(Color.WHITE);
-       /* JLabel labelAsientos = new JLabel(" Cantidad de asientos disponibles: ");  
-        labelAsientos.setFont(new Font("Arial",3,12));
-        labelAsientos.setForeground(Color.black);
-        labelAsientos.setHorizontalAlignment(JLabel.LEFT);
-       // panelAsientos.add(labelAsientos);
-        Integer cantAsientoOcupado= v.getCantidadAsientos(id);
-        Integer cantAsientoDisponible =  auto.getCantidad_de_asientos() - cantAsientoOcupado;
-        JTextField textDisponible=new JTextField(String.valueOf(cantAsientoDisponible));
-        textDisponible.setColumns(5);*/
-       // panelAsientos.add(textDisponible);
+     
        
   //-----Panel Estrellas
   
@@ -541,8 +532,7 @@ public class VentanaSumarseViaje extends FrameManager{
         });
         
         
-        //Boton botonVerCal=new Boton("Ver calificacion del conductor");
-       // panelBotones.add(botonVerCal);
+     
         
         Boton botonVolver=new Boton("VOLVER");
         panelBotones.add(botonVolver);
@@ -590,9 +580,8 @@ public class VentanaSumarseViaje extends FrameManager{
         res.gridx=1;
         res.gridy=2;
         res.gridwidth=1;
-       // res.gridheight=GridBagConstraints.RELATIVE;
         res.weightx=0.8;
-       // res.weighty=1;
+     
         res.anchor = GridBagConstraints.EAST;//derecha
         res.fill = GridBagConstraints.BOTH;
         res.insets = new Insets(0,0,0,0);
@@ -604,25 +593,16 @@ public class VentanaSumarseViaje extends FrameManager{
         res.gridx=2;
         res.gridy=2;
         res.gridwidth=GridBagConstraints.REMAINDER;
-        //res.gridheight=GridBagConstraints.RELATIVE;
         res.weightx=0;
-        //res.weighty=1;
         res.anchor = GridBagConstraints.EAST;
         //res.fill = GridBagConstraints.BOTH;
         res.insets = new Insets(0,0,0,40);
         this.add(panelConductor,res);
-        
-        
-      
-   
+  
         //Panel Asientos disponibles
         res.gridx=0;
         res.gridy=3;
         res.gridwidth=GridBagConstraints.RELATIVE;
-       // res.gridheight=GridBagConstraints.RELATIVE;
-        //res.weightx=1;
-       // res.weighty=1;
-       // res.anchor = GridBagConstraints.EAST;
         res.fill = GridBagConstraints.BOTH;
         res.insets = new Insets(0,40,0,0);
         this.add(panelAsientos,res);
@@ -631,10 +611,7 @@ public class VentanaSumarseViaje extends FrameManager{
         res.gridx=2;
         res.gridy=3;
         res.gridwidth=GridBagConstraints.REMAINDER;
-       // res.gridheight=GridBagConstraints.RELATIVE;
         res.weightx=0.3;
-       // res.weighty=1;
-        //res.anchor = GridBagConstraints.WEST;
         res.fill = GridBagConstraints.BOTH;
         res.insets = new Insets(0,0,0,40);
        
@@ -645,9 +622,6 @@ public class VentanaSumarseViaje extends FrameManager{
         res.gridx=0;
         res.gridy=4;
         res.gridwidth=GridBagConstraints.REMAINDER;
-       // res.gridheight=GridBagConstraints.RELATIVE;
-        //res.weightx=1;
-       // res.weighty=1;
         res.anchor = GridBagConstraints.CENTER;
         res.fill = GridBagConstraints.HORIZONTAL;
         res.insets = new Insets(10,0,0,0);
