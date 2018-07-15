@@ -5,6 +5,7 @@
  */
 package Ventanas;
 
+import static Ventanas.FrameManager.loguetin;
 import ViajarDB.Ciudad;
 import ViajarDB.CiudadDB;
 import ViajarDB.Usuario;
@@ -126,8 +127,58 @@ public class Present extends FrameManager{
         gRes1.insets = new Insets(0,0,10,0);
         panel1.add(textPass,gRes1);
         
-      
-         
+        JLabel labelOlvido = new JLabel("¿Olvido Su Contraseña?");
+        labelOlvido.setFont(new Font("arial",3,12));
+        labelOlvido.setForeground(Color.DARK_GRAY);
+        labelOlvido.setHorizontalAlignment(JLabel.RIGHT);
+        gRes1.gridx = 0;
+        gRes1.gridy = 3;
+        gRes1.gridwidth =GridBagConstraints.REMAINDER;  
+        gRes1.insets = new Insets(0,0,10,0);
+        panel1.add(labelOlvido,gRes1);
+        
+        
+        labelOlvido.addMouseListener(new MouseAdapter(){
+            
+            @Override
+            public void mouseEntered(MouseEvent e) {
+              
+                labelOlvido.setForeground(Color.ORANGE);
+            }
+            
+            @Override
+            public void mouseExited(MouseEvent e) {
+              
+                labelOlvido.setForeground(Color.DARK_GRAY);
+            }
+            
+            
+            @Override
+            public void mouseClicked(MouseEvent e){
+                
+                
+                UsuarioDB usuarios = new UsuarioDB();
+                ArrayList <Usuario> arrUsuarios = new ArrayList<>();
+                arrUsuarios = usuarios.getUsuarios(); 
+                               
+                String envioPass = JOptionPane.showInputDialog("ingrese Mail Para Validar Y Enviar Contraseña");
+                
+                boolean autorizado = false;
+                 for (Usuario uAux : arrUsuarios) {
+                
+                    if ((uAux.getMail().equals(envioPass))){                        
+                        JOptionPane.showMessageDialog(self, "Mail Enviado A " +uAux.getMail());
+                        autorizado = true;
+                       }
+                 }
+                    if (autorizado == false){                                
+                                JOptionPane.showMessageDialog(self, "Mail No Existente");
+                                }
+                    
+                } 
+                 
+                
+        });
     //-------- PANEL 2-----------------
         
         JPanel panel2 = new JPanel();
@@ -396,6 +447,8 @@ public class Present extends FrameManager{
                 if (autorizado == true){
                      //new VentanaViajes().setVisible(true);
                      int nro=2;
+                     loguetin = true;
+                     usuarioActual = uAux;
                      VentanaViajes viajes = new VentanaViajes(uAux);
                      viajes.setVisible(true);
                      self.setVisible(false);
@@ -475,6 +528,8 @@ public class Present extends FrameManager{
                     if(idUsuario != 0){
                         Usuario auxu = u.getUnUsuario(idUsuario);
                         JOptionPane.showMessageDialog(self, "Creación de cuenta exitoso");
+                        loguetin = true;
+                        usuarioActual = auxu;
                         VentanaViajes viajes = new VentanaViajes(auxu);
                         viajes.setVisible(true);
                         self.setVisible(false);
