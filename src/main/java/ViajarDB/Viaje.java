@@ -18,18 +18,14 @@ public class Viaje {
     private String origen;
     private String destino;
     double gastosaproximados;
-    // arreglo de String ciudadesintermedias;
-    //el primer lugar del arreglo seria el origen y en la ultima posicion ponemos el destino
     Date fechaPartida;
     Date horaPartida;
-    //capacidaddelbaul;
-    //boolean aceptamascota;
     Usuario conductor;
     private String lugar_salida;
     private boolean mascota;
     private boolean fumador;
     private Date fecha_creacion;
-    private ArrayList<Usuario> pasajeros= new ArrayList<>();
+ 
     
     
     Viaje(int id,String origen, String destino, double gastosaproximados, Date fecha,Date hora, Usuario conductor,String lugar_salida,boolean mascota,boolean fumador,Date fecha_creacion){
@@ -156,24 +152,7 @@ public class Viaje {
     }
     
     
+  
     
-    
-    void setPasajero(Usuario pasajero){
-        this.pasajeros.add(pasajero);
-    }
-    
-    
-    //se da de baja un pasajero
-    void deletePasajero(Usuario pasajero){
-        boolean existe=false;
-        int i=0;
-        while ( i< pasajeros.size()&&!existe){
-            if (pasajero.getMail()==pasajeros.get(i).getMail())
-                existe=true;                
-            else
-                i++;
-        }
-        //notificar al conductor que se dio de baja ese pasajero
-        this.pasajeros.remove(i);
-    }
+ 
 }
