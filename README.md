@@ -17,7 +17,7 @@ Java
 Java JDBC
 Git
 
-## Herraminetas
+## Herramientas
 NetBeans IDE
 DiffMerge
 GitExtensions
