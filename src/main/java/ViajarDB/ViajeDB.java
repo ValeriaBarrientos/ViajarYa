@@ -390,6 +390,28 @@ public int insertViaje(String ciudadOrigen,String ciudadDestino, double gastos,S
     }   
         
    
+public void retirarseViaje(int idUsuario,int idViaje){
+    
+    try{ 
+        
+        String SQL="DELETE FROM viaje_has_usuario "+
+                   "WHERE Viaje_id_viaje ="+idViaje+ " and Usuario_id_usuario ="+idUsuario+";";
+        
+        System.out.println(SQL);
+        super.InsertSql(SQL);
+        closeConections();
+      }
+       catch (SQLException ex) {
+        ex.printStackTrace();
+      }
+      
+   
+    
+}
+
+
+
+
 }
       
       
