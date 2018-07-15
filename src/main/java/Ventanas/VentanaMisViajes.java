@@ -171,9 +171,10 @@ public class VentanaMisViajes extends FrameManager {
         panelBotones.setLayout(new FlowLayout(FlowLayout.CENTER,100,0));
         Boton botonCalificar=new Boton("CALIFICAR VIAJE");
         panelBotones.add(botonCalificar);
-         Boton botonEditar=new Boton("EDITAR VIAJE");
+        Boton botonEditar=new Boton("EDITAR VIAJE");
         panelBotones.add(botonEditar);
-        
+        Boton botonRetirarse=new Boton("RETIRARSE VIAJE");
+        panelBotones.add(botonRetirarse);
         Boton botonVolver=new Boton("VOLVER");
         panelBotones.add(botonVolver);
         
@@ -184,6 +185,27 @@ public class VentanaMisViajes extends FrameManager {
                     VentanaViajes viajes = new VentanaViajes(u);
                      viajes.setVisible(true);
                      self.setVisible(false);
+                
+            }
+        });
+        
+        botonRetirarse.addMouseListener(new MouseAdapter() { 
+            
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                    
+                    ViajeDB v = new ViajeDB();
+                    Viaje viaje = v.getViajeUsuario(idViaje);
+                    Usuario conductor = viaje.getConductor();
+                    if (conductor.getId_usuario() == u.getId_usuario()){
+                         JOptionPane.showMessageDialog(null, "Solo pueden retirarse pasajeros","Acción no válida", JOptionPane.WARNING_MESSAGE);
+                        
+                    }
+                    else{
+                        v.retirarseViaje(u.getId_usuario(), idViaje);
+                        JOptionPane.showMessageDialog(self, "Ya has sido retirado de este viaje");
+                    }
+                        
                 
             }
         });
@@ -253,9 +275,6 @@ public class VentanaMisViajes extends FrameManager {
         res.gridx=0;
         res.gridy=1;
         res.gridwidth=GridBagConstraints.REMAINDER;
-        //res.gridheight=GridBagConstraints.RELATIVE;
-        //res.weightx=1;
-        //res.weighty=1;
         res.anchor = GridBagConstraints.NORTH;
         res.fill = GridBagConstraints.HORIZONTAL;
         res.insets = new Insets(0,40,0,0);
@@ -265,9 +284,6 @@ public class VentanaMisViajes extends FrameManager {
         res.gridx=0;
         res.gridy=2;
         res.gridwidth=GridBagConstraints.REMAINDER;
-       // res.gridheight=GridBagConstraints.RELATIVE;
-        //res.weightx=1;
-        //res.weighty=1;
         res.anchor = GridBagConstraints.NORTH;
         res.fill = GridBagConstraints.BOTH;
         res.insets = new Insets(0,40,30,40);
@@ -276,9 +292,6 @@ public class VentanaMisViajes extends FrameManager {
         res.gridx=0;
         res.gridy=3;
         res.gridwidth=GridBagConstraints.REMAINDER;
-       // res.gridheight=GridBagConstraints.RELATIVE;
-        //res.weightx=1;
-        //res.weighty=1;
         res.anchor = GridBagConstraints.NORTH;
         res.fill = GridBagConstraints.BOTH;
         res.insets = new Insets(20,40,0,40);
