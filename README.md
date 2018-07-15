@@ -7,7 +7,7 @@ Esperamos que ayude mucho a encontrar su destino y la mejor manera de llegar
 
 
 ## Servicios
-Nuestra propuesta es brindar un servicio que permita a las personas viajar a corta y larga distancia de una manera mas efectiva, segura y económica que la manera tradicional.
+Nuestra propuesta es brindar un servicio que permita a las personas viajar a corta y larga distancia de una forma mas efectiva, segura y económica que la manera tradicional.
 Tenemos como objetivo establecer puentes de conexión entre nuestros usuarios, para que puedan abaratar costos, tiempo, y a su vez disfrutar de experiencias enriquecedoras a partir de viajes compartidos.
 Nos dirigimos a toda persona, en cualquier ciudad o pueblo que desponga de internet
 
