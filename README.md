@@ -12,18 +12,18 @@ Tenemos como objetivo establecer puentes de conexión entre nuestros usuarios, p
 Nos dirigimos a toda persona, en cualquier ciudad o pueblo que desponga de internet
 
 ## Tecnologias y Utilizadas
-MySql
-Java
-Java JDBC
-Git
+* MySql
+* Java
+* Java JDBC
+* Git
 
 
 ## Herramientas
-NetBeans IDE
-easyUML add-on
-MySql Workbench
-DiffMerge
-GitExtensions
+* NetBeans IDE
+* EasyUML add-on
+* MySql Workbench
+* DiffMerge
+* GitExtensions
 
 
 
