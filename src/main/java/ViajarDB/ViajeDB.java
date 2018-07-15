@@ -24,6 +24,7 @@ public class ViajeDB extends DbManager {
     private String[][] misViajes;
     private ArrayList<Calificacion> arrCal = new ArrayList<Calificacion>();
     private Viaje viaje;
+    
     public ArrayList<Viaje> getViajes() {
         //ArrayList<Viaje> resul= new ArrayList<Viaje>();
         try {
@@ -58,7 +59,7 @@ public class ViajeDB extends DbManager {
     
     public ArrayList<Viaje> getViajesActuales(){
             
-            this.consulta = "SELECT * FROM viaje where fechayhora_partida > now()";
+            this.consulta = "SELECT * FROM viaje where fechayhora_partida > now() order by fechayhora_partida";
             return getViajes();
     }
     
