@@ -1,6 +1,6 @@
 # Viajar Ya
 
-## Quines Somos
+## Quienes Somos
 Somos un grupo de programadores surgidos a partir del programa 111mil. Compartimos el gusto por la programación y buscamos insertarnos en le mundo del desarrollo de software.
 Hemos aprendido mucho en este tiempo y ahora queremos verlo reflejado en este sistema. VIAJAR YA! busca facilitar la vida de las personas. 
 Esperamos que ayude mucho a encontrar su destino y la mejor manera de llegar
