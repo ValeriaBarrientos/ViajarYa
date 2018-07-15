@@ -59,13 +59,7 @@ public class VentanaMisAutos extends FrameManager{
     private JTextField textCalificacion;
     private int aux;
     
-    
-    /*
-    Esta ventana mostrara el listado de autos que tengo
-    y la posibilidad de agregar, editar y eliminar un auto
-    */
-    
-   
+  
     
     public VentanaMisAutos(Usuario u){
         java.util.Locale.setDefault(java.util.Locale.forLanguageTag("es-AR"));
@@ -155,28 +149,21 @@ public class VentanaMisAutos extends FrameManager{
         botonAgregarAuto.setAlignmentX (panelBotones.CENTER_ALIGNMENT);
         panelBotones.add(botonAgregarAuto);
         panelBotones.add (Box.createRigidArea (new Dimension (15,15)));
-       // Boton botonEditarAuto=new Boton("Actualizar Datos");
-       // botonEditarAuto.setAlignmentX (panelBotones.CENTER_ALIGNMENT);
-        //panelBotones.add(botonEditarAuto);
-        // panelBotones.add (Box.createRigidArea (new Dimension (15,15)));
+   
         Boton botonEliminarAuto=new Boton("Eliminar Auto");
         botonEliminarAuto.setAlignmentX (panelBotones.CENTER_ALIGNMENT);
         panelBotones.add(botonEliminarAuto);
-       // Boton botonVolver=new Boton("Volver");
-      //  panelBotones.add(botonVolver);
+    
 
 // panel inferior
         
         JPanel panelInferior = new JPanel();
-        //panelBotones.setLayout(new BoxLayout(panelBotones, BoxLayout.Y_AXIS));
         panelInferior.setLayout(new FlowLayout(FlowLayout.CENTER, 100,0));
         Boton botonActualizar=new Boton("Actualizar");
-       // botonEditarAuto.setAlignmentX (panelBotones.CENTER_ALIGNMENT);
         panelInferior.add(botonActualizar);
         Boton botonVolver=new Boton("Volver");
-       // botonVolver.setAlignmentX (panelInferior.CENTER_ALIGNMENT);
         panelInferior.add(botonVolver);
-       // panelInferior.add (Box.createRigidArea (new Dimension (15,15)));
+   
       
         
          //-----------------datos del auto---------------------------------------
@@ -258,11 +245,7 @@ public class VentanaMisAutos extends FrameManager{
         GridBagConstraints resa2 = new GridBagConstraints ();
         panelDetalleAuto2.setLayout(gBaga2);
         panelDetalleAuto2.setBackground(Color.WHITE);
-        //TitledBorder borde3 = new TitledBorder("");
-        //borde3.setTitleFont(new Font("Arial",3,14));
-       // panelDetalleAuto2.setBorder(borde3);
-        
-        
+    
         
         JLabel labelAire=new JLabel("Aire acondicionado:");
         labelAire.setHorizontalAlignment(JLabel.LEFT);
@@ -273,13 +256,7 @@ public class VentanaMisAutos extends FrameManager{
         resa2.fill = GridBagConstraints.HORIZONTAL;
         resa2.insets = new Insets(10,0,10,0);
         panelDetalleAuto2.add(labelAire,resa2);
-       /* String aire=String.valueOf(auto.isAire_acondicionado());
-        if (aire.equals("true")){
-            aire="Si";
-        }
-        else{
-            aire="No";
-        }*/
+       
         JTextField textAire=new JTextField("               ");
         resa2.gridx=1;
         resa2.gridy=0;
@@ -295,13 +272,7 @@ public class VentanaMisAutos extends FrameManager{
         resa2.gridwidth=1;
         resa2.insets = new Insets(10,0,10,0);
         panelDetalleAuto2.add(labelCalefaccion,resa2);
-       /* String calefa=String.valueOf(auto.isCalefaccion());
-        if (calefa.equals("true")){
-            calefa="Si";
-        }
-        else{
-            calefa="No";
-        }*/
+      
         JTextField textCalefaccion=new JTextField("             ");
         resa2.gridx=1;
         resa2.gridy=1;
@@ -337,21 +308,7 @@ public class VentanaMisAutos extends FrameManager{
         resa2.gridwidth=GridBagConstraints.REMAINDER;
         resa2.insets = new Insets(10,0,10,0);
         panelDetalleAuto2.add(textBaul,resa2);
-        
-        /*JLabel labelCalificacion=new JLabel("Calificacion: ");
-        labelCalificacion.setHorizontalAlignment(JLabel.LEFT);
-        resa2.gridx=0;
-        resa2.gridy=4;
-        resa2.gridwidth=1;
-        resa2.insets = new Insets(10,0,10,0);
-        panelDetalleAuto2.add(labelCalificacion,resa2);
-        JTextField textCalificacion=new JTextField("                ");
-        resa2.gridx=1;
-        resa2.gridy=4;
-        resa2.gridwidth=GridBagConstraints.REMAINDER;
-        resa2.insets = new Insets(10,0,10,0);
-        panelDetalleAuto2.add(textCalificacion,resa2);*/
-         
+     
         
         JPanel panelDetalleAuto3 = new JPanel();
         panelDetalleAuto3.setLayout(new FlowLayout(FlowLayout.CENTER, 100,0));
@@ -379,9 +336,7 @@ public class VentanaMisAutos extends FrameManager{
         res2.gridx=0;
         res2.gridy=0;
         res2.gridwidth=GridBagConstraints.RELATIVE;
-        //res.gridheight=GridBagConstraints.RELATIVE;
-        //res.weightx=1;
-       // res.weighty=0;
+   
         res2.anchor = GridBagConstraints.WEST;
         res2.fill = GridBagConstraints.BOTH;
         res2.insets = new Insets(0,0,0,0);
@@ -390,9 +345,7 @@ public class VentanaMisAutos extends FrameManager{
         res2.gridx=1;
         res2.gridy=0;
         res2.gridwidth=GridBagConstraints.RELATIVE;
-        //res.gridheight=GridBagConstraints.RELATIVE;
-        //res.weightx=1;
-       // res.weighty=0;
+      
        res2.anchor = GridBagConstraints.EAST;
         res2.fill = GridBagConstraints.BOTH;
         res2.insets = new Insets(0,0,0,0);
@@ -402,10 +355,7 @@ public class VentanaMisAutos extends FrameManager{
         res2.gridx=0;
         res2.gridy=2;
         res2.gridwidth=GridBagConstraints.RELATIVE;
-        //res.gridheight=GridBagConstraints.RELATIVE;
-        //res.weightx=1;
-       // res.weighty=0;
-       // res2.anchor = GridBagConstraints.EAST;
+ 
         res2.fill = GridBagConstraints.BOTH;
         res2.insets = new Insets(10,0,0,0);
        panelDetalleAuto.add(panelDetalleAuto3,res2);
@@ -545,23 +495,7 @@ public class VentanaMisAutos extends FrameManager{
         res.fill = GridBagConstraints.BOTH;
         res.insets = new Insets(0,50,0,0);
         this.add(panelDetalleAuto,res);
-        
-          //----detalle Auto2
-       /* res.gridx=1;
-        res.gridy=2;
-        res.gridwidth=GridBagConstraints.REMAINDER;
-        //res.gridheight=GridBagConstraints.RELATIVE;
-        //res.weightx=1;
-      //  res.weighty=1;
-        res.anchor = GridBagConstraints.EAST;
-        res.fill = GridBagConstraints.BOTH;
-        res.insets = new Insets(0,0,0,30);
-        this.add(panelDetalleAuto2,res);*/
-                
-                
-        
-
-        
+   
 
         // panel inferior
         res.gridx=0;
