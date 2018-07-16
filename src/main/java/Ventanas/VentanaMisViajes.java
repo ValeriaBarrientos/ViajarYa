@@ -5,9 +5,10 @@
  */
 package Ventanas;
 
-import ViajarDB.Auto;
-import ViajarDB.AutoDB;
+
+import ViajarDB.Calificacion;
 import ViajarDB.Usuario;
+import ViajarDB.UsuarioDB;
 import ViajarDB.Viaje;
 import ViajarDB.ViajeDB;
 import java.awt.Color;
@@ -23,30 +24,30 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
 import javax.swing.border.TitledBorder;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
-
 /**
  *
- * @author vale2
+ * @author alejandro
  */
-public class VentanaMisViajes extends FrameManager {
+public class VentanaComentarios extends FrameManager {
     
-    private int idViaje;
-    private Date fechaPar;
-    public VentanaMisViajes (Usuario u){
-    
-        super();
-        final ViajeDB viajes = new ViajeDB();    
-        final String[] nombreColumnas = {"Id","Salida","Origen","Destino","Lugar Salida","Marca","Modelo","Conductor","Tu calificacion","Tu comentario"};       
+    public VentanaComentarios (ArrayList<Calificacion> calificaciones, String nombreUsuario){
+     
+        final String[] nombreColumnas = {"Usuario","Puntuacion","Comentario"};       
         final DefaultTableModel modTabla = new DefaultTableModel(){
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -56,93 +57,51 @@ public class VentanaMisViajes extends FrameManager {
             
         };
         
-        
-        
         JPanel panelTitulo = new JPanel();
         panelTitulo.setLayout(new FlowLayout(FlowLayout.LEFT,0,0));
-        JLabel labelq = new JLabel(" Viajes de  "+u.getNombre());  
+        JLabel labelq = new JLabel(" Comentarios sobre  "+nombreUsuario);  
         labelq.setFont(new Font("Arial",3,20));
         labelq.setForeground(Color.black);
         labelq.setHorizontalAlignment(JLabel.CENTER);
         panelTitulo.add(labelq);
         
-        //----- Listado de viajes       
-        JPanel panelListadoViajes = new JPanel();
+        //----- Listado de comentarios       
+        JPanel panelListaComentarios = new JPanel();
         GridBagLayout gBag3 = new GridBagLayout ();
         GridBagConstraints gRes3 = new GridBagConstraints ();
-        panelListadoViajes.setLayout(gBag3);
-        panelListadoViajes.setBackground(Color.white);
-        TitledBorder borde1 = new TitledBorder("  Listado actualizado  ");
+        panelListaComentarios.setLayout(gBag3);
+        panelListaComentarios.setBackground(Color.white);
+        TitledBorder borde1 = new TitledBorder("  Listado actualizado de calificaciones  ");
         borde1.setTitleFont(new Font("Arial",3,16));
-        panelListadoViajes.setBorder(borde1);
+        panelListaComentarios.setBorder(borde1);
         
-        String [][]misViajes;
-        int idUsuario = u.getId_usuario();
-        misViajes = viajes.getMisViajes(idUsuario);
-        
-        modTabla.setDataVector(misViajes,nombreColumnas);
          
+        modTabla.setDataVector(cargarTabla(calificaciones),nombreColumnas);
+        JTable tablaComentario = new JTable(modTabla);
+        tablaComentario.setPreferredScrollableViewportSize(new Dimension(300, 300));
         
-        JTable tablaViajes = new JTable(modTabla);
-        tablaViajes.setPreferredScrollableViewportSize(new Dimension(300, 300));
-         //------------oculto la primer columna del id-------------------------ale
-            tablaViajes.getColumnModel().getColumn(0).setMaxWidth(0);
-            tablaViajes.getColumnModel().getColumn(0).setMinWidth(0);
-            tablaViajes.getColumnModel().getColumn(0).setPreferredWidth(0);
-            //------------------------------------------------------------------------
-       
-        tablaViajes.setAutoResizeMode (JTable.AUTO_RESIZE_OFF); 
+        tablaComentario.setAutoResizeMode (JTable.AUTO_RESIZE_OFF); 
         TableColumn col;
         int ancho;
         DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();
         dtcr.setHorizontalAlignment(SwingConstants.CENTER);
+        tablaComentario.setRowHeight(25);
         // --- columna 1   
-        col = tablaViajes.getColumnModel ().getColumn(1);
-        ancho = 80;  
+        col = tablaComentario.getColumnModel ().getColumn(0);
+        ancho = 250;  
         col.setPreferredWidth (ancho);
-        tablaViajes.getColumnModel().getColumn(1).setCellRenderer(dtcr);    
+        tablaComentario.getColumnModel().getColumn(0).setCellRenderer(dtcr);    
         // --- columna 2
-        col = tablaViajes.getColumnModel ().getColumn(2);
-        ancho = 100;  
-        col.setPreferredWidth (ancho);
-        tablaViajes.getColumnModel().getColumn(2).setCellRenderer(dtcr);     
-        // --- columna 3
-        col = tablaViajes.getColumnModel ().getColumn(3);
-        ancho = 100;  
-        col.setPreferredWidth (ancho);
-        tablaViajes.getColumnModel().getColumn(3).setCellRenderer(dtcr);     
-        // --- columna 4
-        col = tablaViajes.getColumnModel ().getColumn(4);
-        ancho = 120;  
-        col.setPreferredWidth (ancho);
-        tablaViajes.getColumnModel().getColumn(4).setCellRenderer(dtcr);     
-        // --- columna 5
-        col = tablaViajes.getColumnModel ().getColumn(5);
-        ancho = 90;  
-        col.setPreferredWidth (ancho);
-        tablaViajes.getColumnModel().getColumn(5).setCellRenderer(dtcr);     
-         // --- columna 6
-        col = tablaViajes.getColumnModel ().getColumn(6);
-        ancho = 100;  
-        col.setPreferredWidth (ancho);
-        tablaViajes.getColumnModel().getColumn(6).setCellRenderer(dtcr); 
-         // --- columna 7
-        col = tablaViajes.getColumnModel ().getColumn(7);
+        col = tablaComentario.getColumnModel ().getColumn(1);
         ancho = 150;  
         col.setPreferredWidth (ancho);
-        tablaViajes.getColumnModel().getColumn(7).setCellRenderer(dtcr); 
-         // --- columna 8
-        col = tablaViajes.getColumnModel ().getColumn(8);
-        ancho = 80;  
+        tablaComentario.getColumnModel().getColumn(1).setCellRenderer(dtcr);     
+        // --- columna 3
+        col = tablaComentario.getColumnModel ().getColumn(2);
+        ancho = 870;  
         col.setPreferredWidth (ancho);
-        tablaViajes.getColumnModel().getColumn(8).setCellRenderer(dtcr); 
-         // --- columna 9
-        col = tablaViajes.getColumnModel ().getColumn(9);
-        ancho = 400;  
-        col.setPreferredWidth (ancho);
-        dtcr.setHorizontalAlignment(SwingConstants.LEFT);
-        tablaViajes.getColumnModel().getColumn(9).setCellRenderer(dtcr); 
-        
+        tablaComentario.getColumnModel().getColumn(2).setCellRenderer(dtcr);     
+       
         gRes3.gridx=0;
         gRes3.gridy=1;
         gRes3.weightx=1;
@@ -151,30 +110,9 @@ public class VentanaMisViajes extends FrameManager {
         gRes3.fill = GridBagConstraints.BOTH;
         gRes3.insets = new Insets(0,0,10,0);
         
-        panelListadoViajes.add(new JScrollPane(tablaViajes),gRes3);
-        tablaViajes.addMouseListener(new MouseAdapter(){
-          
-        @Override
-            public void mouseClicked(MouseEvent e) {
-           
-                //tablaViajes.getSelectedRows()
-                String id=String.valueOf(tablaViajes.getValueAt(tablaViajes.getSelectedRow(), 0));
-                idViaje=Integer.parseInt(id);
-            
-             }
-                           
-               
-        });
-        
+        panelListaComentarios.add(new JScrollPane(tablaComentario),gRes3);
         
         JPanel panelBotones = new JPanel();
-        panelBotones.setLayout(new FlowLayout(FlowLayout.CENTER,100,0));
-        Boton botonCalificar=new Boton("CALIFICAR VIAJE");
-        panelBotones.add(botonCalificar);
-        Boton botonEditar=new Boton("EDITAR VIAJE");
-        panelBotones.add(botonEditar);
-        Boton botonRetirarse=new Boton("RETIRARSE VIAJE");
-        panelBotones.add(botonRetirarse);
         Boton botonVolver=new Boton("VOLVER");
         panelBotones.add(botonVolver);
         
@@ -182,95 +120,10 @@ public class VentanaMisViajes extends FrameManager {
             
             @Override
             public void mouseClicked(MouseEvent e) {
-                    VentanaViajes viajes = new VentanaViajes(u);
-                     viajes.setVisible(true);
                      self.setVisible(false);
                 
             }
         });
-        
-        botonRetirarse.addMouseListener(new MouseAdapter() { 
-            
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                    
-                    ViajeDB v = new ViajeDB();
-                    Viaje viaje = v.getViajeUsuario(idViaje);
-                    Usuario conductor = viaje.getConductor();
-                    if (conductor.getId_usuario() == u.getId_usuario()){
-                         JOptionPane.showMessageDialog(null, "Solo pueden retirarse pasajeros","Acción no válida", JOptionPane.WARNING_MESSAGE);
-                        
-                    }
-                    else{
-                        v.retirarseViaje(u.getId_usuario(), idViaje);
-                        JOptionPane.showMessageDialog(self, "Ya has sido retirado de este viaje");
-                    }
-                        
-                
-            }
-        });
-        
-        
-        botonCalificar.addMouseListener(new MouseAdapter() { 
-            
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                ViajeDB v = new ViajeDB();
-                Viaje viaje = v.getViajeUsuario(idViaje);
-                Calendar fecha = new GregorianCalendar();
-                fechaPar=viaje.getFechaPartida();
-                Date f = fecha.getTime();
-                System.out.println(f);
-                System.out.println(fechaPar);
-                //Date fechaPar= viaje.getFechaPartida();
-                if (fechaPar.after(f)){
-                  JOptionPane.showMessageDialog(null, "Aún no se ha realizado este viaje","No se puede calificar" , JOptionPane.WARNING_MESSAGE);
-                }
-                else{
-                
-                    VentanaCalificarViaje cv = new VentanaCalificarViaje(u,idViaje);
-                     cv.setVisible(true);
-                     //self.setVisible(false);
-                }
-            }
-        });
-        
-        botonEditar.addMouseListener(new MouseAdapter() { 
-            
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                
-                AutoDB a =new AutoDB(); 
-                ArrayList<Auto> arrAutos = new ArrayList<Auto>();
-                arrAutos=a.ObtenerAutosUsuario(u.getId_usuario());
-                 if (arrAutos.size()>0){
-                   
-                            ViajeDB v = new ViajeDB();
-                            Viaje viaje = v.getViajeUsuario(idViaje);
-                            Calendar fecha = new GregorianCalendar();
-                            fechaPar=viaje.getFechaPartida();
-                            Date f = fecha.getTime();
-                            System.out.println(f);
-                            System.out.println(fechaPar);
-                            //Date fechaPar= viaje.getFechaPartida();
-                            if (fechaPar.before(f)){
-                              JOptionPane.showMessageDialog(null, "No se puede editar este viaje","Viaje ya realizado" , JOptionPane.WARNING_MESSAGE);
-                            }
-                            else{
-
-                                VentanaEditarViaje cv = new VentanaEditarViaje(u,viaje);
-                                 cv.setVisible(true);
-                                 self.setVisible(false);
-                            }
-                    }
-                    
-                    else{
-                        JOptionPane.showMessageDialog(null, "No tiene permiso para editar los datos de este viaje","Acción no válida" , JOptionPane.WARNING_MESSAGE);
-                    }
-            }    
-        });
-        
-        
         
         res.gridx=0;
         res.gridy=1;
@@ -287,7 +140,7 @@ public class VentanaMisViajes extends FrameManager {
         res.anchor = GridBagConstraints.NORTH;
         res.fill = GridBagConstraints.BOTH;
         res.insets = new Insets(0,40,30,40);
-        this.add(panelListadoViajes,res);
+        this.add(panelListaComentarios,res);
         
         res.gridx=0;
         res.gridy=3;
@@ -298,10 +151,24 @@ public class VentanaMisViajes extends FrameManager {
         this.add(panelBotones,res);
         
     }
+
+    public Object[][] cargarTabla(ArrayList<Calificacion> calificaciones){
+        UsuarioDB u = new UsuarioDB();
+        int max= calificaciones.size();
+        Object[][] datos= new Object[max+10][3];    
+        int i=0;
+        for(Calificacion cAux : calificaciones){
+               Usuario usuario = u.getUnUsuario(calificaciones.get(i).getIdUsuario());
+               datos[i][0]=usuario.getNombre() +" "+usuario.getApellido();
+               datos[i][1]=cAux.getPuntuacion();
+               datos[i][2]=cAux.getComentario();
+               i++;
+            
+        }
         
-       
-       
-    
-    
-    
+        return datos;
+        
+    }
+
+
 }
