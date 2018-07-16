@@ -366,31 +366,7 @@ public class VentanaViajes extends FrameManager{
             }
         });
 
-        
-        
-        
-        
-        
-        
-        
-    /*    Boton botonTodos=new Boton("MOSTRAR TODOS");
-        panel3.add(botonTodos);
-        botonTodos.addMouseListener(new MouseAdapter() { 
-            
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                ViajeDB viajes = new ViajeDB();
-                ArrayList <Viaje> arrViajes = new ArrayList<>();   
-                arrViajes = viajes.getViajesActuales(); 
-                modTabla.setDataVector(cargarTabla(arrViajes),nombreColumnas);
-                 //------------oculto la primer columna del id-------------------------ale
-                tablaViajes.getColumnModel().getColumn(0).setMaxWidth(0);
-                tablaViajes.getColumnModel().getColumn(0).setMinWidth(0);
-                tablaViajes.getColumnModel().getColumn(0).setPreferredWidth(0);
-                //------------------------------------------------------------------------
-            }
-        });*/
-        
+     
  
         
         //Panel Saludo
