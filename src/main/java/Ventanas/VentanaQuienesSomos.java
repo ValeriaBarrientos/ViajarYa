@@ -47,7 +47,7 @@ public class VentanaQuienesSomos extends FrameManager{
         //res.weighty=1;
         res.anchor = GridBagConstraints.NORTH;
         res.fill = GridBagConstraints.HORIZONTAL;
-        res.insets = new Insets(0,0,0,0);
+        res.insets = new Insets(20,0,20,0);
         this.add(panelTitulo,res);
         
         ImageIcon imagenTex = new ImageIcon(getClass().getResource("/TextoQuienes.png"));
