@@ -69,7 +69,7 @@ public class VentanaComentarios extends FrameManager {
         JPanel panelListaComentarios = new JPanel();
         GridBagLayout gBag3 = new GridBagLayout ();
         GridBagConstraints gRes3 = new GridBagConstraints ();
-        panelListaComentarios.setLayout(gBag3);
+       panelListaComentarios.setLayout(gBag3);
         panelListaComentarios.setBackground(Color.white);
         TitledBorder borde1 = new TitledBorder("  Listado actualizado de calificaciones  ");
         borde1.setTitleFont(new Font("Arial",3,16));
@@ -90,6 +90,7 @@ public class VentanaComentarios extends FrameManager {
         col = tablaComentario.getColumnModel ().getColumn(0);
         ancho = 250;  
         col.setPreferredWidth (ancho);
+        
         tablaComentario.getColumnModel().getColumn(0).setCellRenderer(dtcr);    
         // --- columna 2
         col = tablaComentario.getColumnModel ().getColumn(1);
@@ -98,11 +99,11 @@ public class VentanaComentarios extends FrameManager {
         tablaComentario.getColumnModel().getColumn(1).setCellRenderer(dtcr);     
         // --- columna 3
         col = tablaComentario.getColumnModel ().getColumn(2);
-        ancho = 870;  
+        ancho = 600;  
         col.setPreferredWidth (ancho);
         tablaComentario.getColumnModel().getColumn(2).setCellRenderer(dtcr);     
        
-        gRes3.gridx=0;
+       gRes3.gridx=0;
         gRes3.gridy=1;
         gRes3.weightx=1;
         gRes3.weighty=1;
@@ -111,7 +112,7 @@ public class VentanaComentarios extends FrameManager {
         gRes3.insets = new Insets(0,0,10,0);
         
         panelListaComentarios.add(new JScrollPane(tablaComentario),gRes3);
-        
+       
         JPanel panelBotones = new JPanel();
         Boton botonVolver=new Boton("VOLVER");
         panelBotones.add(botonVolver);
