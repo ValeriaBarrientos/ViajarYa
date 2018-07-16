@@ -158,7 +158,7 @@ public class VentanaMisAutos extends FrameManager{
 // panel inferior
         
         JPanel panelInferior = new JPanel();
-        panelInferior.setLayout(new FlowLayout(FlowLayout.CENTER, 100,0));
+        panelInferior.setLayout(new FlowLayout(FlowLayout.CENTER, 50,0));
         Boton botonActualizar=new Boton("Actualizar");
         panelInferior.add(botonActualizar);
         Boton botonVolver=new Boton("Volver");
