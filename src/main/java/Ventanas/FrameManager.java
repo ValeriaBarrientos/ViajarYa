@@ -207,8 +207,8 @@ public abstract class FrameManager extends JFrame {
          
          
         this.setTitle("VIAJAR YA!");
-        this.setSize(950,600);
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setSize(1024,720);
+        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        
@@ -228,8 +228,8 @@ public abstract class FrameManager extends JFrame {
         res.weighty=1;
         res.anchor = GridBagConstraints.NORTH;
         res.fill = GridBagConstraints.HORIZONTAL;
-  
         this.add(img,res);
+        
         res.gridx=0;
         res.gridy=0;
         res.gridwidth=GridBagConstraints.REMAINDER;
