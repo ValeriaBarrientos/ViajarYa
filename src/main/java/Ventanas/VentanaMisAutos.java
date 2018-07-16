@@ -8,6 +8,7 @@ package Ventanas;
 import ViajarDB.Auto;
 import ViajarDB.AutoDB;
 import ViajarDB.Usuario;
+import ViajarDB.ViajeDB;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -25,6 +26,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -64,7 +66,7 @@ public class VentanaMisAutos extends FrameManager{
     public VentanaMisAutos(Usuario u){
         java.util.Locale.setDefault(java.util.Locale.forLanguageTag("es-AR"));
         VentanaMisAutos self = this;
-            
+      
         final String[] nombreColumnas = {"id","Marca","Modelo","Color","Combustible","Patente","Aire","Calefacción","Cantidad de asientos","Calificación","Baul"};       
         final DefaultTableModel modTabla = new DefaultTableModel(){
             @Override
@@ -116,7 +118,7 @@ public class VentanaMisAutos extends FrameManager{
                 col.setPreferredWidth (ancho);
                 tablaAutos.getColumnModel().getColumn(2).setCellRenderer(dtcr);    
         
-                GridBagConstraints gRes3 = new GridBagConstraints ();
+               // GridBagConstraints gRes = new GridBagConstraints ();
                 gRes.gridx=0;
                 gRes.gridy=1;
                 gRes.weightx=1;
@@ -155,21 +157,11 @@ public class VentanaMisAutos extends FrameManager{
         panelBotones.add(botonEliminarAuto);
     
 
-// panel inferior
-        
-        JPanel panelInferior = new JPanel();
-        panelInferior.setLayout(new FlowLayout(FlowLayout.CENTER, 50,0));
-        Boton botonActualizar=new Boton("Actualizar");
-        panelInferior.add(botonActualizar);
-        Boton botonVolver=new Boton("Volver");
-        panelInferior.add(botonVolver);
-   
+
       
         
          //-----------------datos del auto---------------------------------------
-       
-       
-        
+
         
         
         JPanel panelDetalleAuto1 = new JPanel();
@@ -187,7 +179,7 @@ public class VentanaMisAutos extends FrameManager{
         resa1.fill = GridBagConstraints.HORIZONTAL;
         resa1.insets = new Insets(10,0,10,0);
         panelDetalleAuto1.add(labelMarca,resa1);
-        JTextField textMarca=new JTextField("                                              ");
+        textMarca=new JTextField("                                              ");
       //  textMarca.setHorizontalAlignment(JTextField.LEFT);
         resa1.gridx=1;
         resa1.gridy=0;
@@ -203,7 +195,7 @@ public class VentanaMisAutos extends FrameManager{
         resa1.gridwidth=1;
         resa1.insets = new Insets(10,0,10,0);
         panelDetalleAuto1.add(labelModelo,resa1);
-        JTextField textModelo=new JTextField("");
+        textModelo=new JTextField("");
         resa1.gridx=1;
         resa1.gridy=1;
         resa1.gridwidth=GridBagConstraints.REMAINDER;
@@ -217,7 +209,7 @@ public class VentanaMisAutos extends FrameManager{
         resa1.gridwidth=1;
         resa1.insets = new Insets(10,0,10,0);
         panelDetalleAuto1.add(labelColor,resa1);
-        JTextField textColor=new JTextField("");
+        textColor=new JTextField("");
         resa1.gridx=1;
         resa1.gridy=2;
         //resa1.gridwidth=1;
@@ -225,16 +217,37 @@ public class VentanaMisAutos extends FrameManager{
         panelDetalleAuto1.add(textColor,resa1);
        
         
+         //PATENTE--------------------
+        JLabel laPatente = new JLabel("Patente:");  
+        laPatente.setFont(new Font("arial",3,12));
+        laPatente.setForeground(Color.BLACK);
+        laPatente.setHorizontalAlignment(JLabel.LEFT);
+         resa1.gridx = 0;
+         resa1.gridy = 3;
+         resa1.gridwidth =1;
+         resa1.insets = new Insets(10,0,10,0);
+        panelDetalleAuto1.add(laPatente, resa1);
+        textPatente = new JTextField(" ");
+        //textPatente.setColumns(25);
+         resa1.gridx = 1;
+         resa1.gridy = 3;
+         resa1.gridwidth =1;
+         resa1.insets = new Insets(10,0,10,0);
+        panelDetalleAuto1.add(textPatente,resa1);
+        
+        
+        
+        
         JLabel labelCombustible=new JLabel("Combustible: ");
         labelCombustible.setHorizontalAlignment(JLabel.LEFT);
         resa1.gridx=0;
-        resa1.gridy=3;
+        resa1.gridy=4;
         resa1.gridwidth=1;
         resa1.insets = new Insets(10,0,10,0);
         panelDetalleAuto1.add(labelCombustible,resa1);
-        JTextField textCombustible=new JTextField("             ");
+        textCombustible=new JTextField("             ");
         resa1.gridx=1;
-        resa1.gridy=3;
+        resa1.gridy=4;
        // resa1.gridwidth=1;
         resa1.insets = new Insets(10,0,10,0);
         panelDetalleAuto1.add(textCombustible,resa1);
@@ -257,7 +270,7 @@ public class VentanaMisAutos extends FrameManager{
         resa2.insets = new Insets(10,0,10,0);
         panelDetalleAuto2.add(labelAire,resa2);
        
-        JTextField textAire=new JTextField("               ");
+        textAire=new JTextField("               ");
         resa2.gridx=1;
         resa2.gridy=0;
         resa2.gridwidth=GridBagConstraints.REMAINDER;
@@ -273,7 +286,7 @@ public class VentanaMisAutos extends FrameManager{
         resa2.insets = new Insets(10,0,10,0);
         panelDetalleAuto2.add(labelCalefaccion,resa2);
       
-        JTextField textCalefaccion=new JTextField("             ");
+        textCalefaccion=new JTextField("             ");
         resa2.gridx=1;
         resa2.gridy=1;
         resa2.gridwidth=GridBagConstraints.REMAINDER;;
@@ -288,12 +301,12 @@ public class VentanaMisAutos extends FrameManager{
         resa2.gridwidth=1;
         resa2.insets = new Insets(10,0,10,0);
         panelDetalleAuto2.add(labelCantidad,resa2);
-        JTextField textCantidad=new JTextField("               ");
+        textCantAsientos=new JTextField("               ");
         resa2.gridx=1;
         resa2.gridy=2;
         resa2.gridwidth=GridBagConstraints.REMAINDER;;
         resa2.insets = new Insets(10,0,10,0);
-        panelDetalleAuto2.add(textCantidad,resa2);
+        panelDetalleAuto2.add(textCantAsientos,resa2);
         
         JLabel labelBaul=new JLabel("Capacidad Baul: ");
         labelBaul.setHorizontalAlignment(JLabel.LEFT);
@@ -302,23 +315,37 @@ public class VentanaMisAutos extends FrameManager{
         resa2.gridwidth=1;
         resa2.insets = new Insets(10,0,10,0);
         panelDetalleAuto2.add(labelBaul,resa2);
-        JTextField textBaul=new JTextField("                      ");
+        textBaul=new JTextField("                      ");
         resa2.gridx=1;
         resa2.gridy=3;
         resa2.gridwidth=GridBagConstraints.REMAINDER;
         resa2.insets = new Insets(10,0,10,0);
         panelDetalleAuto2.add(textBaul,resa2);
+        
+        JLabel labelCalificacion=new JLabel("Calificacion: ");
+        labelCalificacion.setHorizontalAlignment(JLabel.CENTER);
+        resa2.gridx=0;
+        resa2.gridy=4;
+        resa2.gridwidth=1;
+        resa2.insets = new Insets(10,0,10,0);
+        panelDetalleAuto2.add(labelCalificacion,resa2);
+        textCalificacion=new JTextField("                 ");
+        resa2.gridx=1;
+        resa2.gridy=4;
+        resa2.gridwidth=GridBagConstraints.REMAINDER;
+        resa2.insets = new Insets(10,0,10,0);
+        panelDetalleAuto2.add(textCalificacion,resa2);
      
         
-        JPanel panelDetalleAuto3 = new JPanel();
+      /*  JPanel panelDetalleAuto3 = new JPanel();
         panelDetalleAuto3.setLayout(new FlowLayout(FlowLayout.CENTER, 100,0));
         panelDetalleAuto3.setBackground(Color.WHITE);
         JLabel labelCalificacion=new JLabel("Calificacion: ");
         labelCalificacion.setHorizontalAlignment(JLabel.CENTER);
         
         panelDetalleAuto3.add(labelCalificacion);
-        JTextField textCalificacion=new JTextField("                 ");
-        panelDetalleAuto3.add(textCalificacion);
+        textCalificacion=new JTextField("                 ");
+        panelDetalleAuto3.add(textCalificacion);*/
         
         
         
@@ -340,7 +367,7 @@ public class VentanaMisAutos extends FrameManager{
         res2.anchor = GridBagConstraints.WEST;
         res2.fill = GridBagConstraints.BOTH;
         res2.insets = new Insets(0,0,0,0);
-       panelDetalleAuto.add(panelDetalleAuto1,res2);
+        panelDetalleAuto.add(panelDetalleAuto1,res2);
        
         res2.gridx=1;
         res2.gridy=0;
@@ -358,7 +385,7 @@ public class VentanaMisAutos extends FrameManager{
  
         res2.fill = GridBagConstraints.BOTH;
         res2.insets = new Insets(10,0,0,0);
-       panelDetalleAuto.add(panelDetalleAuto3,res2);
+       //panelDetalleAuto.add(panelDetalleAuto3,res2);
         
         
         tablaAutos.addMouseListener(new MouseAdapter(){
@@ -376,6 +403,7 @@ public class VentanaMisAutos extends FrameManager{
                 textMarca.setText(auto.getMarca());
                 textModelo.setText(auto.getModelo());
                 textColor.setText(auto.getColor());
+                textPatente.setText(auto.getPatente());
                 textCombustible.setText(auto.getCombustible());
                 String aire=String.valueOf(auto.isAire_acondicionado());
                 if (aire.equals("true")){
@@ -394,7 +422,7 @@ public class VentanaMisAutos extends FrameManager{
                 }
                 
                 textCalefaccion.setText(calefa);
-                textCantidad.setText(String.valueOf(auto.getCantidad_de_asientos()));
+                textCantAsientos.setText(String.valueOf(auto.getCantidad_de_asientos()));
                 textBaul.setText(auto.getCapacidad_baul());
                 textCalificacion.setText(String.valueOf(auto.getCalificacion()));
                 
@@ -404,7 +432,50 @@ public class VentanaMisAutos extends FrameManager{
         });
         
          
-         
+         // panel inferior
+        
+        JPanel panelInferior = new JPanel();
+        panelInferior.setLayout(new FlowLayout(FlowLayout.CENTER, 50,0));
+        Boton botonActualizar=new Boton("Actualizar");
+        panelInferior.add(botonActualizar);
+        Boton botonVolver=new Boton("Volver");
+        panelInferior.add(botonVolver);
+            
+        botonActualizar.addMouseListener(new MouseAdapter() { 
+            
+            @Override
+            public void mouseClicked(MouseEvent e) {
+               
+                String marca=textMarca.getText();
+                String modelo=textModelo.getText();
+                String color=textColor.getText();
+                String combustible=textCombustible.getText();
+             
+                String patente=textPatente.getText();
+                String aire;
+                String calefaccion;
+                String cantAsientos=textCantAsientos.getText();
+           
+                String calificacion=textCalificacion.getText();;
+                String baul=textBaul.getText();
+                //String foto=" ";//falta asignar la foto
+                if (textAire.equals("Si"))
+                    aire="1";
+                else
+                    aire="0";
+                if (textCalefaccion.equals("Si"))
+                    calefaccion="1";
+                else
+                    calefaccion="0";
+                
+               AutoDB adb=new AutoDB();  
+               adb.updateCar(marca, modelo, color, combustible, patente, aire, calefaccion, cantAsientos, calificacion, baul,idAuto);
+                //adb.updateCar(marca, modelo, color, combustible, patente, aire, calefaccion, cantAsientos, calificacion, baul, arrAutos.get(aux).getId_auto());
+                JOptionPane.showMessageDialog(self,"El auto se ha actualizado satisfactoriamente");
+               
+                
+            }
+        });
          
         
         
@@ -432,18 +503,7 @@ public class VentanaMisAutos extends FrameManager{
             }
         });
         
-        botonActualizar.addMouseListener(new MouseAdapter() { 
-            
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                
-                
-                VentanaEditAuto va=new VentanaEditAuto(u,autos.ObtenerAutosUsuario(u.getId_usuario()));
-                va.setVisible(true);
-                self.setVisible(false);
-                
-            }
-        });
+      
         
         
         botonEliminarAuto.addMouseListener(new MouseAdapter() { 
@@ -451,11 +511,22 @@ public class VentanaMisAutos extends FrameManager{
             @Override
             public void mouseClicked(MouseEvent e) {
                 
-                VentanaDeleteAuto elimAuto = new VentanaDeleteAuto(u,autos.ObtenerAutosUsuario(u.getId_usuario()));
-                elimAuto.setVisible(true);
-                self.setVisible(false);
                 
-            }
+                ViajeDB v = new ViajeDB();
+                v.tieneViajesPendientes(idAuto);
+                AutoDB adb = new AutoDB();
+                if ( v.tieneViajesPendientes(idAuto)){
+                    JOptionPane.showMessageDialog(null, "El auto tiene viajes pendientes", "Acción no válida", JOptionPane.WARNING_MESSAGE);
+                }
+                else {
+                    adb.deleteCar(idAuto);
+                    JOptionPane.showMessageDialog(self,"El auto ha sido eliminado");
+                    VentanaMisAutos va = new VentanaMisAutos(u);
+                    va.setVisible(true);
+                    self.setVisible(false);
+                
+                }
+            }    
         });
         
         //----Listar Autos
