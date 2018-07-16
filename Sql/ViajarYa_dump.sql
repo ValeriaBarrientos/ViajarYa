@@ -38,6 +38,7 @@ CREATE TABLE `auto` (
   `capacidad_de_baul` varchar(45) DEFAULT NULL,
   `foto` varchar(500) DEFAULT NULL,
   `id_propietario` int(11) NOT NULL,
+  `cuenta` bit(1) NOT NULL DEFAULT b'1',
   PRIMARY KEY (`id_auto`,`id_propietario`),
   UNIQUE KEY `id_Auto_UNIQUE` (`id_auto`),
   UNIQUE KEY `patente_UNIQUE` (`patente`),
@@ -52,7 +53,7 @@ CREATE TABLE `auto` (
 
 LOCK TABLES `auto` WRITE;
 /*!40000 ALTER TABLE `auto` DISABLE KEYS */;
-INSERT INTO `auto` VALUES (1,'Gol 1.6 I Trendline Plus 2009','Volkswagen','gris','nafta','ICY 585','','',4,9,'grande',' ',1),(2,'Clio 1.2 Pack Plus 2007','Renault','rojo','nafta','JVC 177','','',4,9,'chica',' ',1),(3,'Fiesta 1.3 Clx 1998','Ford','rojo','nafta','CGR 372','','',4,7,'chica',' ',2),(4,'307 2.0 Hdi Xs 90cv Mp3 2007','Peugeot','negro','diesel','FGI 633','','',4,8,'mediana',' ',3);
+INSERT INTO `auto` VALUES (1,'Gol 1.6 I Trendline Plus 2009','Volkswagen','gris','nafta','ICY 585','','',4,9,'grande',' ',1,''),(2,'Clio 1.2 Pack Plus 2007','Renault','rojo','nafta','JVC 177','','',4,9,'chica',' ',1,''),(3,'Fiesta 1.3 Clx 1998','Ford','rojo','nafta','CGR 372','','',4,7,'chica',' ',2,''),(4,'307 2.0 Hdi Xs 90cv Mp3 2007','Peugeot','negro','diesel','FGI 633','','',4,8,'mediana',' ',3,'');
 /*!40000 ALTER TABLE `auto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -73,7 +74,7 @@ CREATE TABLE `calificacion` (
   PRIMARY KEY (`id_calificacion`,`Viaje_has_Usuario_Viaje_id_viaje`,`Viaje_has_Usuario_Usuario_id_usuario`,`Viaje_has_Usuario_Auto_id_auto`),
   KEY `fk_calificacion_Viaje_has_Usuario1_idx` (`Viaje_has_Usuario_Viaje_id_viaje`,`Viaje_has_Usuario_Usuario_id_usuario`,`Viaje_has_Usuario_Auto_id_auto`),
   CONSTRAINT `fk_calificacion_Viaje_has_Usuario1` FOREIGN KEY (`Viaje_has_Usuario_Viaje_id_viaje`, `Viaje_has_Usuario_Usuario_id_usuario`, `Viaje_has_Usuario_Auto_id_auto`) REFERENCES `viaje_has_usuario` (`viaje_id_viaje`, `usuario_id_usuario`, `auto_id_auto`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -82,7 +83,7 @@ CREATE TABLE `calificacion` (
 
 LOCK TABLES `calificacion` WRITE;
 /*!40000 ALTER TABLE `calificacion` DISABLE KEYS */;
-INSERT INTO `calificacion` VALUES (1,5,'puntualidad y charlas muy amenas',1,5,2),(2,1,'Se durmió al volante.',6,5,4);
+INSERT INTO `calificacion` VALUES (1,5,'puntualidad y charlas muy amenas',1,5,2),(2,1,'Se durmió al volante.',6,5,4),(3,4,'Todo ok!',5,5,4),(4,4,'Todo ok!',5,5,4);
 /*!40000 ALTER TABLE `calificacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,13 +154,12 @@ CREATE TABLE `usuario` (
   `ciudad` varchar(45) NOT NULL,
   `fecha_nacimiento` date NOT NULL,
   `mail` varchar(45) NOT NULL,
-  `pass` varchar(8) NOT NULL,
+  `pass` varchar(15) NOT NULL,
   `imagen` varchar(500) DEFAULT NULL,
   `genero` char(1) CHARACTER SET big5 COLLATE big5_chinese_ci NOT NULL,
   `activo` bit(1) NOT NULL,
-  `cuenta` bit(1) DEFAULT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -168,7 +168,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Liliana','Gíboli','154455566','Doreing 100','Tandil','1970-10-14','lilianag@gmail.com','lili123',' ','f','',''),(2,'Diego','Diaz','154455577','Pellegrini 100','Tandil','1980-08-24','diegod@gmail.com','diego123',' ','m','',''),(3,'Alejandro','Campitelli','154455888','Alem 100','Tandil','1979-11-03','alejandroc@gmail.com','ale123',' ','m','',''),(4,'Leandro','Mazza','154422266','Montiel 340','Tandil','1988-06-11','leandrom@gmail.com','lea123',' ','m','',''),(5,'Valeria','Barrientos','154455333','Brandsen 613','Tandil','1974-05-14','valeriab@gmail.com','vale123',' ','f','',''),(6,'Susana','Gimenez','0249 154678934','alem 234','Tandil','1988-06-08','susana@gmail.com','susi123',' ','f','',''),(7,'Susana','Gimenez','0249 154678934','alem 234','Tandil','1988-06-08','susana123@gmail.com','susi123',' ','f','',''),(8,'federico','mazza','123132123','alem 123','Tandil','2008-06-01','fedemazza@gmail.com','fede123',' ','m','',''),(9,'Pablo','Marmol','154454446','Paz 780','Tandil','1988-12-24','pablom@gmail.com','pablo123',' ','m','',''),(10,'Pedro','Lopez','0249154232345','Rodriguez 1244','Tandil','1969-09-11','pedrol@gmail.com','pedro123',' ','m','',''),(11,'Javier ','Mascherano','024015467893','9 de Julio 234','Tandil','1988-02-09','javierm@gmail.com','javi123',' ','m','',''),(12,'Paulina','Rubio','024915232435','Chacabuco 123','Tandil','1979-08-14','paulina@hotmail.com','pau123',' ','f','',''),(13,'Maria Laura','Fernanadez','02411546773','Laprida 1234','Olavarria','1965-10-04','marialaura@gmail.com','maria123',' ','f','',''),(14,'Luis ','Suarez','011 154676767','San Juan 1546','Buenos Aires','1993-06-11','luisz@hotmail.com','luis123',' ','m','',''),(15,'Carla','Petersen','0226 154232476','Formosa 567','Ayacucho','1990-03-07','carlap@gmail.com','carla123',' ','f','',''),(16,'Jose','Meolans','0249 1543276765','Colombia 54','Tandil','1986-06-02','josem@gmail.com','jose123',' ','m','',''),(17,'Daniela','Mercuri','0249 154322467','Paz 567','Tandil','1980-08-28','danielam@gmail.com','dani123',' ','f','','');
+INSERT INTO `usuario` VALUES (1,'Juan','Perez','154455566','Alem 234','Tandil','1970-10-14','juanp@gmail.com','1234',' ','m',''),(2,'Maria','Garcia','154455577','Paz 600','Tandil','1980-08-24','mariag@gmail.com','1234',' ','f',''),(3,'Alejandro','Campitelli','154455888','Alem 100','Tandil','1979-11-03','alejandroc@gmail.com','ale123',' ','m',''),(4,'Leandro','Mazza','154422266','Montiel 340','Tandil','1988-06-11','leandrom@gmail.com','lea123',' ','m',''),(5,'Valeria','Barrientos','154455333','Brandsen 544','Tandil','1974-05-14','valeriab@gmail.com','vale123',' ','f',''),(6,'Diego','Diaz','0249 154678934','Colon 100','Tandil','1988-06-08','diegod@gmail.com','diego123',' ','m',''),(7,'Liliana','Gíboli','0249 154678934','Doreing 100','Tandil','1988-06-08','lilianag@gmail.com','lili123',' ','f',''),(8,'federico','mazza','123132123','alem 123','Tandil','2008-06-01','fedemazza@gmail.com','fede123',' ','m',''),(9,'Pablo','Marmol','154454446','Paz 780','Tandil','1988-12-24','pablom@gmail.com','pablo123',' ','m',''),(10,'Pedro','Lopez','0249154232345','Rodriguez 1244','Tandil','1969-09-11','pedrol@gmail.com','pedro123',' ','m',''),(11,'Javier ','Mascherano','024015467893','9 de Julio 234','Tandil','1988-02-09','javierm@gmail.com','javi123',' ','m',''),(12,'Paulina','Rubio','024915232435','Chacabuco 123','Tandil','1979-08-14','paulina@hotmail.com','pau123',' ','f',''),(13,'Maria Laura','Fernanadez','02411546773','Laprida 1234','Olavarria','1965-10-04','marialaura@gmail.com','maria123',' ','f',''),(14,'Luis ','Suarez','011 154676767','San Juan 1546','Buenos Aires','1993-06-11','luisz@hotmail.com','luis123',' ','m',''),(15,'Carla','Petersen','0226 154232476','Formosa 567','Ayacucho','1990-03-07','carlap@gmail.com','carla123',' ','f',''),(16,'Jose','Meolans','0249 1543276765','Colombia 54','Tandil','1986-06-02','josem@gmail.com','jose123',' ','m',''),(17,'Daniela','Mercuri','0249 154322467','Paz 567','Tandil','1980-08-28','danielam@gmail.com','dani123',' ','f',''),(18,'Carlos','Gardel','0249 154232311','Pinto 123','Tandil','1954-07-21','carlosg@gmail.com','car123','  ','m','');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -191,7 +191,7 @@ CREATE TABLE `viaje` (
   `fecha_creacion` datetime DEFAULT NULL,
   PRIMARY KEY (`id_viaje`),
   UNIQUE KEY `id_viaje_UNIQUE` (`id_viaje`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -200,7 +200,7 @@ CREATE TABLE `viaje` (
 
 LOCK TABLES `viaje` WRITE;
 /*!40000 ALTER TABLE `viaje` DISABLE KEYS */;
-INSERT INTO `viaje` VALUES (1,'Tandil','Olavarria',105,'2018-06-17 17:15:00','Paz 134','','\0','2018-06-10 00:00:00'),(2,'Tandil','Mar del Plata',133,'2018-06-20 09:00:00','Rivadavia y España','','\0','2018-06-10 00:00:00'),(3,'Rauch','Tandil',55,'2018-06-19 19:30:00','Colon 123','','','2018-06-10 00:00:00'),(4,'Tandil','Olavarria',105,'2018-06-21 11:15:00','Buzon 453','\0','\0','2018-06-10 00:00:00'),(5,'Tandil','La Plata',300,'2018-06-28 07:00:00','Buzon y Portugal','','\0','2018-04-10 00:00:00'),(6,'Tandil','La Plata',300,'2018-04-28 07:00:00','Buzon y Portugal','','\0','2018-04-10 00:00:00'),(7,'Tandil','Necochea',280,'2018-08-15 07:00:00','Arana 22','','\0','2018-06-17 00:00:00'),(8,'Necochea','Tandil',280,'2018-08-20 10:00:00','Av 59 y 60','\0','\0','2018-06-17 00:00:00'),(9,'Ayacucho','Tandil',155,'2018-07-23 07:00:00','Belgrano 120','','\0','2018-04-27 00:00:00'),(10,'Tandil','Olavarria',105,'2018-07-09 13:00:00','Paz 134','\0','\0','2018-06-27 00:00:00'),(11,'Tandil','Mar del Plata',133,'2018-07-20 09:00:00','Av.España 678','','\0','2018-07-24 00:00:00'),(12,'Rauch','Tandil',55,'2018-07-19 19:00:00','Colombia 123','','','2018-07-26 00:00:00'),(13,'Tandil','Ayacucho',155,'2018-07-21 11:30:00','Buzon 453','\0','\0','2018-06-27 00:00:00');
+INSERT INTO `viaje` VALUES (1,'Tandil','Olavarria',105,'2018-06-17 17:15:00','Paz 134','','\0','2018-06-10 00:00:00'),(2,'Tandil','Mar del Plata',133,'2018-06-20 09:00:00','Rivadavia y España','','\0','2018-06-10 00:00:00'),(3,'Rauch','Tandil',55,'2018-06-19 19:30:00','Colon 123','','','2018-06-10 00:00:00'),(4,'Tandil','Olavarria',105,'2018-06-21 11:15:00','Buzon 453','\0','\0','2018-06-10 00:00:00'),(5,'Tandil','La Plata',300,'2018-06-28 07:00:00','Buzon y Portugal','','\0','2018-04-10 00:00:00'),(6,'Tandil','La Plata',300,'2018-04-28 07:00:00','Buzon y Portugal','','\0','2018-04-10 00:00:00'),(7,'Tandil','Necochea',280,'2018-08-15 07:00:00','Arana 22','','\0','2018-06-17 00:00:00'),(8,'Necochea','Tandil',280,'2018-08-20 10:00:00','Av 59 y 60','\0','\0','2018-06-17 00:00:00'),(9,'Ayacucho','Tandil',155,'2018-07-23 07:00:00','Belgrano 120','','\0','2018-04-27 00:00:00'),(10,'Tandil','Olavarria',105,'2018-07-09 13:00:00','Paz 134','\0','\0','2018-06-27 00:00:00'),(11,'Tandil','Mar del Plata',133,'2018-07-20 09:00:00','Av.España 678','','\0','2018-07-24 00:00:00'),(12,'Rauch','Tandil',55,'2018-07-19 19:00:00','Colombia 123','','','2018-07-26 00:00:00'),(13,'Tandil','Ayacucho',200,'2018-07-21 11:30:00','Buzon 300','\0','\0','2018-05-30 00:00:00'),(14,'Tandil','Buenos Aires',500,'2018-07-18 16:00:00','Paz 333','','\0','2018-06-09 00:00:00'),(15,'Tandil','Azul',250,'2018-09-01 22:00:00','Alem 120','\0','','2018-06-09 00:00:00'),(16,'Tandil','Olavarria',150,'2018-07-19 13:00:00','Av Colon 344','','\0','2018-06-14 00:00:00');
 /*!40000 ALTER TABLE `viaje` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -231,7 +231,7 @@ CREATE TABLE `viaje_has_usuario` (
 
 LOCK TABLES `viaje_has_usuario` WRITE;
 /*!40000 ALTER TABLE `viaje_has_usuario` DISABLE KEYS */;
-INSERT INTO `viaje_has_usuario` VALUES (1,1,2),(3,1,1),(4,1,2),(9,1,1),(10,1,1),(13,1,2),(2,2,3),(7,2,3),(8,2,3),(5,3,4),(6,3,4),(11,3,4),(12,3,4),(5,4,4),(1,5,2),(5,5,4),(6,5,4),(7,5,3);
+INSERT INTO `viaje_has_usuario` VALUES (1,1,2),(3,1,1),(4,1,2),(9,1,1),(10,1,1),(13,1,2),(14,1,1),(15,1,2),(2,2,3),(7,2,3),(8,2,3),(16,2,3),(5,3,4),(6,3,4),(11,3,4),(12,3,4),(5,4,4),(1,5,2),(5,5,4),(6,5,4),(7,5,3),(8,5,3),(11,5,4),(12,5,4),(15,5,2);
 /*!40000 ALTER TABLE `viaje_has_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -244,4 +244,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-28 19:48:07
+-- Dump completed on 2018-07-16 10:21:01
