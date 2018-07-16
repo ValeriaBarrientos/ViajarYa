@@ -394,22 +394,22 @@ public class VentanaAuto extends FrameManager{
                 String color=textColor.getText();
                 String combustible=String.valueOf(comboCombustible.getSelectedItem());
                 String patente=textPatente.getText();
-                String aire;
-                String calefaccion;
+                int aire;
+                int calefaccion;
                 String cantAsientos=textCantAsientos.getText();
                 String calificacion=String.valueOf(comboCalificacion.getSelectedItem());
                 String baul=String.valueOf(comboBaul.getSelectedItem());
                 String id_usuario=Integer.toString(u.getId_usuario());
                 String foto=" ";//falta asignar la foto
-                if (comboAire.getSelectedItem().toString()=="Si")
-                    aire="0";
+                if (comboAire.getSelectedItem().toString().equals("Si"))
+                    aire=1;
                 else
-                    aire="1";
-                if (comboCalefaccion.getSelectedItem().toString()=="Si")
-                    calefaccion="0";
+                    aire=0;
+                if (comboCalefaccion.getSelectedItem().toString().equals("Si"))
+                    calefaccion=1;
                 else
-                    calefaccion="1";
-                adb.addCar(marca, modelo, color, combustible, patente, aire, calefaccion, cantAsientos, calificacion, baul,id_usuario);
+                    calefaccion=0;
+                adb.addCar(marca, modelo, color, combustible, patente, aire, calefaccion, cantAsientos, calificacion, baul,u.getId_usuario());
                 JOptionPane.showMessageDialog(self,"El auto se registro satisfactoriamente");
                 VentanaMisAutos va = new VentanaMisAutos(u);
                 va.setVisible(true);
