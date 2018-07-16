@@ -410,7 +410,38 @@ public void retirarseViaje(int idUsuario,int idViaje){
     
 }
 
+   public Boolean tieneViajesPendientes(int idAuto){
+     
+       boolean tiene;
+       int cantidadViajes =0;
+        try{
+             String SSQL = "select count(*) Viaje_id_viaje"+
+                         " from viaje_has_usuario as vhu"+
+                         " inner join viaje as v"+
+                         " on v.id_viaje = vhu.Viaje_id_viaje"+
+                         " where v.fechayhora_partida > now() and vhu.Auto_id_auto = "+idAuto+";";
 
+            ResultSet st = GET_RESULT_SET(SSQL);
+             while (st.next()){
+                cantidadViajes = st.getInt("Viaje_id_viaje");
+             }
+                 
+            closeConections();
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        if (cantidadViajes == 0 )
+               tiene= false;
+           else
+               tiene= true;
+       
+  
+           
+        return tiene;
+                        
+   }
 
 
 }
