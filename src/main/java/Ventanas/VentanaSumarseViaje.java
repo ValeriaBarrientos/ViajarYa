@@ -486,7 +486,7 @@ public class VentanaSumarseViaje extends FrameManager{
             @Override
             public void mouseEntered(MouseEvent e) {
               
-                labelComentario.setForeground(Color.BLUE);
+                labelComentario.setForeground(Color.ORANGE);
             }
             
             @Override
