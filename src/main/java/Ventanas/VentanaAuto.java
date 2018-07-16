@@ -12,6 +12,7 @@ package Ventanas;
 import ViajarDB.AutoDB;
 import ViajarDB.Usuario;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -26,10 +27,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-/**
- *
- * @author diego
- */
 
 public class VentanaAuto extends FrameManager{
     
@@ -47,16 +44,11 @@ public class VentanaAuto extends FrameManager{
     public VentanaAuto(Usuario u){
        final AutoDB adb=new AutoDB();
     
-    /*va a mostrar segun la activacion de los botones: agregar auto, Editar mis autos, Eliminar auto */ 
-    
+   
     
         java.util.Locale.setDefault(java.util.Locale.forLanguageTag("es-AR"));
         VentanaAuto self = this;
 
-        //----Mostrar los datos provenientes de un auto
-        
-        // agregar auto
-        
         //-------- PANEL 1-----------------
         
         JPanel panel1 = new JPanel();
@@ -109,8 +101,8 @@ public class VentanaAuto extends FrameManager{
         laModelo.setFont(new Font("arial",3,12));
         laModelo.setForeground(Color.BLACK);
         laModelo.setHorizontalAlignment(JLabel.RIGHT);
-        gRes1.gridx = 2;
-        gRes1.gridy = 1;
+        gRes1.gridx = 0;
+        gRes1.gridy = 2;
         gRes1.gridwidth =1;
         gRes1.anchor = GridBagConstraints.WEST;
         gRes1.fill = GridBagConstraints.HORIZONTAL;
@@ -118,8 +110,8 @@ public class VentanaAuto extends FrameManager{
         panel1.add(laModelo,gRes1);
         textModelo = new JTextField();
         textModelo.setColumns(25);
-        gRes1.gridx = 3;
-        gRes1.gridy = 1;
+        gRes1.gridx = 1;
+        gRes1.gridy = 2;
         gRes1.gridwidth =1;
         gRes1.insets = new Insets(0,0,10,10);
         panel1.add(textModelo,gRes1);
@@ -138,7 +130,7 @@ public class VentanaAuto extends FrameManager{
         laColor.setForeground(Color.BLACK);
         laColor.setHorizontalAlignment(JLabel.RIGHT);
         gRes1.gridx = 0;
-        gRes1.gridy = 2;
+        gRes1.gridy = 3;
         gRes1.gridwidth =1;
         gRes1.anchor = GridBagConstraints.WEST;
         gRes1.fill = GridBagConstraints.HORIZONTAL;
@@ -147,7 +139,7 @@ public class VentanaAuto extends FrameManager{
         textColor = new JTextField();
         textColor.setColumns(25);
         gRes1.gridx = 1;
-        gRes1.gridy = 2;
+        gRes1.gridy = 3;
         gRes1.gridwidth =1;
         gRes1.insets = new Insets(0,0,10,10);
         panel1.add(textColor,gRes1);
@@ -165,8 +157,8 @@ public class VentanaAuto extends FrameManager{
         laCombustible.setFont(new Font("arial",3,12));
         laCombustible.setForeground(Color.BLACK);
         laCombustible.setHorizontalAlignment(JLabel.RIGHT);
-        gRes1.gridx = 2;
-        gRes1.gridy = 2;
+        gRes1.gridx = 0;
+        gRes1.gridy = 4;
         gRes1.gridwidth =1;
         gRes1.anchor = GridBagConstraints.WEST;
         gRes1.fill = GridBagConstraints.HORIZONTAL;
@@ -176,8 +168,9 @@ public class VentanaAuto extends FrameManager{
         comboCombustible.addItem("NAFTA");
         comboCombustible.addItem("DIESEL");
         comboCombustible.addItem("GAS");
-        gRes1.gridx = 3;
-        gRes1.gridy = 2;
+        comboCombustible.setBackground(Color.WHITE);
+        gRes1.gridx = 1;
+        gRes1.gridy = 4;
         gRes1.gridwidth =1;
         gRes1.insets = new Insets(0,0,10,10);
         panel1.add(comboCombustible,gRes1);
@@ -196,7 +189,7 @@ public class VentanaAuto extends FrameManager{
         laPatente.setForeground(Color.BLACK);
         laPatente.setHorizontalAlignment(JLabel.RIGHT);
         gRes1.gridx = 0;
-        gRes1.gridy = 3;
+        gRes1.gridy = 5;
         gRes1.gridwidth =1;
         gRes1.anchor = GridBagConstraints.WEST;
         gRes1.fill = GridBagConstraints.HORIZONTAL;
@@ -205,7 +198,7 @@ public class VentanaAuto extends FrameManager{
         textPatente = new JTextField();
         textPatente.setColumns(25);
         gRes1.gridx = 1;
-        gRes1.gridy = 3;
+        gRes1.gridy = 5;
         gRes1.gridwidth =1;
         gRes1.insets = new Insets(0,0,10,10);
         panel1.add(textPatente,gRes1);
@@ -223,8 +216,8 @@ public class VentanaAuto extends FrameManager{
         laAire.setFont(new Font("arial",3,12));
         laAire.setForeground(Color.BLACK);
         laAire.setHorizontalAlignment(JLabel.RIGHT);
-        gRes1.gridx = 2;
-        gRes1.gridy = 3;
+        gRes1.gridx = 0;
+        gRes1.gridy = 6;
         gRes1.gridwidth =1;
         gRes1.anchor = GridBagConstraints.WEST;
         gRes1.fill = GridBagConstraints.HORIZONTAL;
@@ -233,8 +226,9 @@ public class VentanaAuto extends FrameManager{
         comboAire = new JComboBox();
         comboAire.addItem("Si");
         comboAire.addItem("No");
-        gRes1.gridx = 3;
-        gRes1.gridy = 3;
+        comboAire.setBackground(Color.WHITE);
+        gRes1.gridx = 1;
+        gRes1.gridy = 6;
         gRes1.gridwidth =1;
         gRes1.insets = new Insets(0,0,10,10);
         panel1.add(comboAire,gRes1);
@@ -253,7 +247,7 @@ public class VentanaAuto extends FrameManager{
         laCalefaccion.setForeground(Color.BLACK);
         laCalefaccion.setHorizontalAlignment(JLabel.RIGHT);
         gRes1.gridx = 0;
-        gRes1.gridy = 4;
+        gRes1.gridy = 7;
         gRes1.gridwidth =1;
         gRes1.anchor = GridBagConstraints.WEST;
         gRes1.fill = GridBagConstraints.HORIZONTAL;
@@ -262,8 +256,9 @@ public class VentanaAuto extends FrameManager{
         comboCalefaccion = new JComboBox();
         comboCalefaccion.addItem("Si");
         comboCalefaccion.addItem("No");
+        comboCalefaccion.setBackground(Color.WHITE);
         gRes1.gridx = 1;
-        gRes1.gridy = 4;
+        gRes1.gridy = 7;
         gRes1.gridwidth =1;
         gRes1.insets = new Insets(0,0,10,10);
         panel1.add(comboCalefaccion,gRes1);
@@ -281,8 +276,8 @@ public class VentanaAuto extends FrameManager{
         laAsientos.setFont(new Font("arial",3,12));
         laAsientos.setForeground(Color.BLACK);
         laAsientos.setHorizontalAlignment(JLabel.RIGHT);
-        gRes1.gridx = 2;
-        gRes1.gridy = 4;
+        gRes1.gridx = 0;
+        gRes1.gridy = 8;
         gRes1.gridwidth =1;
         gRes1.anchor = GridBagConstraints.WEST;
         gRes1.fill = GridBagConstraints.HORIZONTAL;
@@ -290,8 +285,8 @@ public class VentanaAuto extends FrameManager{
         panel1.add(laAsientos,gRes1);
         textCantAsientos = new JTextField();
         textCantAsientos.setColumns(25);
-        gRes1.gridx = 3;
-        gRes1.gridy = 4;
+        gRes1.gridx = 1;
+        gRes1.gridy = 8;
         gRes1.gridwidth =1;
         gRes1.insets = new Insets(0,0,10,10);
         panel1.add(textCantAsientos,gRes1);
@@ -310,7 +305,7 @@ public class VentanaAuto extends FrameManager{
         laCalificacion.setForeground(Color.BLACK);
         laCalificacion.setHorizontalAlignment(JLabel.RIGHT);
         gRes1.gridx = 0;
-        gRes1.gridy = 5;
+        gRes1.gridy = 9;
         gRes1.gridwidth =1;
         gRes1.anchor = GridBagConstraints.EAST;
         gRes1.fill = GridBagConstraints.HORIZONTAL;
@@ -327,8 +322,9 @@ public class VentanaAuto extends FrameManager{
         comboCalificacion.addItem(8);
         comboCalificacion.addItem(9);
         comboCalificacion.addItem(10);
+        comboCalificacion.setBackground(Color.WHITE);
         gRes1.gridx = 1;
-        gRes1.gridy = 5;
+        gRes1.gridy = 9;
         gRes1.gridwidth =1;
         gRes1.insets = new Insets(0,0,10,10);
         panel1.add(comboCalificacion,gRes1);
@@ -346,8 +342,8 @@ public class VentanaAuto extends FrameManager{
         laBaul.setFont(new Font("arial",3,12));
         laBaul.setForeground(Color.BLACK);
         laBaul.setHorizontalAlignment(JLabel.RIGHT);
-        gRes1.gridx = 2;
-        gRes1.gridy = 5;
+        gRes1.gridx = 0;
+        gRes1.gridy = 10;
         gRes1.gridwidth =1;
         gRes1.anchor = GridBagConstraints.EAST;
         gRes1.fill = GridBagConstraints.HORIZONTAL;
@@ -357,8 +353,9 @@ public class VentanaAuto extends FrameManager{
         comboBaul.addItem("GRANDE");
         comboBaul.addItem("MEDIANO");
         comboBaul.addItem("CHICO");
-        gRes1.gridx = 3;
-        gRes1.gridy = 5;
+        comboBaul.setBackground(Color.WHITE);
+        gRes1.gridx = 1;
+        gRes1.gridy = 10;
         gRes1.gridwidth =1;
         gRes1.insets = new Insets(0,0,10,10);
         panel1.add(comboBaul,gRes1);
@@ -381,33 +378,13 @@ public class VentanaAuto extends FrameManager{
         res.gridwidth=GridBagConstraints.RELATIVE;
         res.anchor = GridBagConstraints.CENTER;
         res.fill = GridBagConstraints.BOTH;
-        res.insets = new Insets(0,10 ,0,0);
+        res.insets = new Insets(0,60 ,30,60);
         this.add(panel1,res);
     //-----panel2
         JPanel panel2 = new JPanel();
-        
-        GridBagLayout gBag3 = new GridBagLayout ();
-        GridBagConstraints gRes3 = new GridBagConstraints ();
-        panel2.setLayout(gBag3);
-        
-        /*GridBagLayout gBag2 = new GridBagLayout ();
-        GridBagConstraints gRes2 = new GridBagConstraints ();
-        panel2.setLayout(gBag2);*/
-        
-        panel2.setBackground(Color.LIGHT_GRAY);
-            
-              
+        panel2.setLayout(new FlowLayout(FlowLayout.CENTER, 50,0));
         Boton botonRegistrar=new Boton("Registrar Auto");
-        gRes3.gridx =1;
-        gRes3.gridy =1;
-        gRes3.gridwidth =1;
-        gRes3.gridheight =0;
-        gRes3.weightx = 1.0;
-        gRes3.weighty = 1.0;
-        gRes3.anchor = GridBagConstraints.CENTER;
-        gRes3.fill = GridBagConstraints.NONE;
-        gRes3.insets = new Insets(0,0,0,30);
-        panel2.add(botonRegistrar,gRes3);
+        panel2.add(botonRegistrar);
         
         botonRegistrar.addMouseListener(new MouseAdapter() { 
             @Override
@@ -441,16 +418,7 @@ public class VentanaAuto extends FrameManager{
         });
         
         Boton botonVolver=new Boton("Volver");
-        gRes3.gridx =2;
-        gRes3.gridy =1;
-        gRes3.gridwidth =1;
-        gRes3.gridheight =0;
-        gRes3.weightx = 1.0;
-        gRes3.weighty = 1.0;
-        gRes3.anchor = GridBagConstraints.CENTER;
-        gRes3.fill = GridBagConstraints.NONE;
-        gRes3.insets = new Insets(0,0,0,30);
-        panel2.add(botonVolver,gRes3);
+        panel2.add(botonVolver);
         
         botonVolver.addMouseListener(new MouseAdapter() { 
             
@@ -473,6 +441,7 @@ public class VentanaAuto extends FrameManager{
         res.weighty=0.3;
         res.anchor = GridBagConstraints.WEST;
         res.fill = GridBagConstraints.BOTH;
+        res.insets = new Insets(0,30,0,0);
         this.add(panel2,res);
     }   
 }
