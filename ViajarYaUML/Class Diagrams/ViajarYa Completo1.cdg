@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ViajarYa">
+  <ClassDiagramComponents>
+    <Class name="FrameManager" package="Ventanas" visibility="public" isAbstract="true" xPosition="327.0" yPosition="22.0">
+      <Fields>
+        <Field name="loguetin" type="boolean" visibility="package" isStatic="true"/>
+        <Field name="usuarioActual" type="Usuario" visibility="package" isStatic="true"/>
+        <Field name="gridBag" type="GridBagLayout" visibility="package"/>
+        <Field name="res" type="GridBagConstraints" visibility="package"/>
+        <Field name="self" type="FrameManager" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Present" package="Ventanas" visibility="public" xPosition="50.0" yPosition="165.0">
+      <Fields>
+        <Field name="textMail" type="JTextField" visibility="private"/>
+        <Field name="textPass" type="JPasswordField" visibility="private"/>
+        <Field name="textNombre" type="JTextField" visibility="private"/>
+        <Field name="textCalle" type="JTextField" visibility="private"/>
+        <Field name="textNro" type="JTextField" visibility="private"/>
+        <Field name="textTelefono" type="JTextField" visibility="private"/>
+        <Field name="textFechaNac" type="JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="PruebaVentanaViajes" package="Ventanas" visibility="public" xPosition="532.0" yPosition="82.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="VentanaCuenta" package="Ventanas" visibility="public" xPosition="24.0" yPosition="10.0">
+      <Fields>
+        <Field name="textNom" type="JTextField" visibility="private"/>
+        <Field name="textApe" type="JTextField" visibility="private"/>
+        <Field name="textCalle" type="JTextField" visibility="private"/>
+        <Field name="textCiudad" type="JTextField" visibility="private"/>
+        <Field name="textNumTel" type="JTextField" visibility="private"/>
+        <Field name="dateNac" type="JDateChooser" visibility="private"/>
+        <Field name="textMail" type="JTextField" visibility="private"/>
+        <Field name="textPass" type="JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Usuario" name="u"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="VentanaQuienesSomos" package="Ventanas" visibility="public" xPosition="283.0" yPosition="456.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="VentanaServicios" package="Ventanas" visibility="public" xPosition="148.0" yPosition="310.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="VentanaViajes" package="Ventanas" visibility="public" xPosition="485.0" yPosition="258.0">
+      <Fields>
+        <Field name="arrViajes" type="ArrayList&lt;Viaje&gt;" visibility="private"/>
+        <Field name="idViaje" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Usuario" name="u"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="cargarTabla" returnType="Object[][]" visibility="public">
+          <Argument type="ArrayList&lt;Viaje&gt;" name="arrViajes"/>
+        </Method>
+        <Method name="getArrViajes" returnType="ArrayList&lt;Viaje&gt;" visibility="public"/>
+        <Method name="setArrViajes" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Viaje&gt;" name="arrViajes"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Ventanas.VentanaServicios" target="Ventanas.FrameManager"/>
+    <IsRelation name="is" source="Ventanas.VentanaViajes" target="Ventanas.FrameManager"/>
+    <IsRelation name="is" source="Ventanas.VentanaCuenta" target="Ventanas.FrameManager"/>
+    <HasRelation name="self" source="Ventanas.FrameManager" target="Ventanas.FrameManager" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Ventanas.Present" target="Ventanas.FrameManager"/>
+    <IsRelation name="is" source="Ventanas.VentanaQuienesSomos" target="Ventanas.FrameManager"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

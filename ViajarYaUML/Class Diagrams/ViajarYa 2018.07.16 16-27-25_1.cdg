@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ViajarYa">
+  <ClassDiagramComponents>
+    <Class name="Boton" package="Ventanas" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="text"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setCursor" returnType="Boton" visibility="package">
+          <Argument type="int" name="HAND_CURSOR"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="FrameManager" package="Ventanas" visibility="public" isAbstract="true" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="loguetin" type="boolean" visibility="package" isStatic="true"/>
+        <Field name="usuarioActual" type="Usuario" visibility="package" isStatic="true"/>
+        <Field name="gridBag" type="GridBagLayout" visibility="package"/>
+        <Field name="res" type="GridBagConstraints" visibility="package"/>
+        <Field name="self" type="FrameManager" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Present" package="Ventanas" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="textMail" type="JTextField" visibility="private"/>
+        <Field name="textPass" type="JPasswordField" visibility="private"/>
+        <Field name="textNombre" type="JTextField" visibility="private"/>
+        <Field name="textCalle" type="JTextField" visibility="private"/>
+        <Field name="textNro" type="JTextField" visibility="private"/>
+        <Field name="textTelefono" type="JTextField" visibility="private"/>
+        <Field name="textFechaNac" type="JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="PruebaVentanaViajes" package="Ventanas" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="VentanaAgregarViaje" package="Ventanas" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="i" type="int" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Usuario" name="usuario"/>
+          <Argument type="ArrayList&lt;Auto&gt;" name="arrAutos"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="VentanaAuto" package="Ventanas" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="textMarca" type="JTextField" visibility="private"/>
+        <Field name="textModelo" type="JTextField" visibility="private"/>
+        <Field name="textColor" type="JTextField" visibility="private"/>
+        <Field name="comboCombustible" type="JComboBox" visibility="private"/>
+        <Field name="textPatente" type="JTextField" visibility="private"/>
+        <Field name="comboAire" type="JComboBox" visibility="private"/>
+        <Field name="comboCalefaccion" type="JComboBox" visibility="private"/>
+        <Field name="textCantAsientos" type="JTextField" visibility="private"/>
+        <Field name="comboCalificacion" type="JComboBox" visibility="private"/>
+        <Field name="comboBaul" type="JComboBox" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Usuario" name="u"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="VentanaCalificarViaje" package="Ventanas" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="nota" type="int" visibility="private"/>
+        <Field name="comentario" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Usuario" name="u"/>
+          <Argument type="int" name="idViaje"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getSelectedButtonText" returnType="String" visibility="public">
+          <Argument type="ButtonGroup" name="buttonGroup"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="VentanaComentarios" package="Ventanas" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="ArrayList&lt;Calificacion&gt;" name="calificaciones"/>
+          <Argument type="String" name="nombreUsuario"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="cargarTabla" returnType="Object[][]" visibility="public">
+          <Argument type="ArrayList&lt;Calificacion&gt;" name="calificaciones"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="VentanaCuenta" package="Ventanas" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="textNom" type="JTextField" visibility="private"/>
+        <Field name="textApe" type="JTextField" visibility="private"/>
+        <Field name="textCalle" type="JTextField" visibility="private"/>
+        <Field name="textCiudad" type="JTextField" visibility="private"/>
+        <Field name="textNumTel" type="JTextField" visibility="private"/>
+        <Field name="dateNac" type="JDateChooser" visibility="private"/>
+        <Field name="textMail" type="JTextField" visibility="private"/>
+        <Field name="textPass" type="JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Usuario" name="u"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="VentanaEditarViaje" package="Ventanas" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Usuario" name="u"/>
+          <Argument type="Viaje" name="v"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="VentanaMisAutos" package="Ventanas" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields>
+        <Field name="nombreColumnas" type="String[]" visibility="private"/>
+        <Field name="autos" type="AutoDB" visibility="package" isFinal="true"/>
+        <Field name="idAuto" type="int" visibility="private"/>
+        <Field name="auto" type="Auto" visibility="private"/>
+        <Field name="comboListaAutos" type="JComboBox" visibility="private"/>
+        <Field name="textMarca" type="JTextField" visibility="private"/>
+        <Field name="textModelo" type="JTextField" visibility="private"/>
+        <Field name="textColor" type="JTextField" visibility="private"/>
+        <Field name="comboCombustible" type="JComboBox" visibility="private"/>
+        <Field name="textCombustible" type="JTextField" visibility="private"/>
+        <Field name="textPatente" type="JTextField" visibility="private"/>
+        <Field name="comboAire" type="JComboBox" visibility="private"/>
+        <Field name="textAire" type="JTextField" visibility="private"/>
+        <Field name="comboCalefaccion" type="JComboBox" visibility="private"/>
+        <Field name="textCantAsientos" type="JTextField" visibility="private"/>
+        <Field name="comboCalificacion" type="JComboBox" visibility="private"/>
+        <Field name="comboBaul" type="JComboBox" visibility="private"/>
+        <Field name="textCalefaccion" type="JTextField" visibility="private"/>
+        <Field name="textCantidad" type="JTextField" visibility="private"/>
+        <Field name="textBaul" type="JTextField" visibility="private"/>
+        <Field name="textCalificacion" type="JTextField" visibility="private"/>
+        <Field name="aux" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Usuario" name="u"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="cargarTabla" returnType="Object[][]" visibility="public">
+          <Argument type="ArrayList&lt;Auto&gt;" name="arrAutos"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="VentanaMisViajes" package="Ventanas" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields>
+        <Field name="idViaje" type="int" visibility="private"/>
+        <Field name="fechaPar" type="Date" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Usuario" name="u"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="cargarTabla" returnType="Object[][]" visibility="public">
+          <Argument type="ArrayList&lt;Calificacion&gt;" name="calificaciones"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="VentanaQuienesSomos" package="Ventanas" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="VentanaServicios" package="Ventanas" visibility="public" xPosition="1520.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="VentanaSumarseViaje" package="Ventanas" visibility="public" xPosition="1820.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="Usuario" name="usuarioActual"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="VentanaViajes" package="Ventanas" visibility="public" xPosition="2120.0" yPosition="420.0">
+      <Fields>
+        <Field name="arrViajes" type="ArrayList&lt;Viaje&gt;" visibility="private"/>
+        <Field name="idViaje" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Usuario" name="u"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="cargarTabla" returnType="Object[][]" visibility="public">
+          <Argument type="ArrayList&lt;Viaje&gt;" name="arrViajes"/>
+        </Method>
+        <Method name="getArrViajes" returnType="ArrayList&lt;Viaje&gt;" visibility="public"/>
+        <Method name="setArrViajes" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Viaje&gt;" name="arrViajes"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Auto" package="ViajarDB" visibility="public" xPosition="20.0" yPosition="820.0">
+      <Fields>
+        <Field name="conductor" type="Usuario" visibility="private"/>
+        <Field name="id_auto" type="int" visibility="private"/>
+        <Field name="marca" type="String" visibility="private"/>
+        <Field name="modelo" type="String" visibility="private"/>
+        <Field name="color" type="String" visibility="private"/>
+        <Field name="combustible" type="String" visibility="private"/>
+        <Field name="patente" type="String" visibility="private"/>
+        <Field name="aire_acondicionado" type="boolean" visibility="private"/>
+        <Field name="calefaccion" type="boolean" visibility="private"/>
+        <Field name="cantidad_de_asientos" type="short" visibility="private"/>
+        <Field name="capacidad_baul" type="String" visibility="private"/>
+        <Field name="foto" type="String" visibility="private"/>
+        <Field name="calificacion" type="short" visibility="private"/>
+        <Field name="cuenta" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="int" name="id_auto"/>
+          <Argument type="String" name="marca"/>
+          <Argument type="String" name="modelo"/>
+          <Argument type="String" name="color"/>
+          <Argument type="String" name="combustible"/>
+          <Argument type="String" name="patente"/>
+          <Argument type="boolean" name="aireacondicionado"/>
+          <Argument type="boolean" name="calefaccion"/>
+          <Argument type="short" name="cantidad_de_asientos"/>
+          <Argument type="short" name="calificacion"/>
+          <Argument type="String" name="capacidad_baul"/>
+          <Argument type="String" name="foto"/>
+          <Argument type="boolean" name="cuenta"/>
+        </Constructor>
+        <Constructor visibility="package">
+          <Argument type="String" name="marca"/>
+          <Argument type="String" name="modelo"/>
+          <Argument type="String" name="combustible"/>
+          <Argument type="String" name="patente"/>
+          <Argument type="boolean" name="aireacondicionado"/>
+          <Argument type="boolean" name="calefaccion"/>
+          <Argument type="short" name="cantidad_de_asientos"/>
+          <Argument type="short" name="calificacion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="isCuenta" returnType="boolean" visibility="public"/>
+        <Method name="setCuenta" returnType="void" visibility="public">
+          <Argument type="boolean" name="cuenta"/>
+        </Method>
+        <Method name="getConductor" returnType="Usuario" visibility="public"/>
+        <Method name="setConductor" returnType="void" visibility="public">
+          <Argument type="Usuario" name="conductor"/>
+        </Method>
+        <Method name="getId_auto" returnType="int" visibility="public"/>
+        <Method name="setId_auto" returnType="void" visibility="public">
+          <Argument type="int" name="id_auto"/>
+        </Method>
+        <Method name="getMarca" returnType="String" visibility="public"/>
+        <Method name="setMarca" returnType="void" visibility="public">
+          <Argument type="String" name="marca"/>
+        </Method>
+        <Method name="getModelo" returnType="String" visibility="public"/>
+        <Method name="setModelo" returnType="void" visibility="public">
+          <Argument type="String" name="modelo"/>
+        </Method>
+        <Method name="getColor" returnType="String" visibility="public"/>
+        <Method name="setColor" returnType="void" visibility="public">
+          <Argument type="String" name="color"/>
+        </Method>
+        <Method name="getCombustible" returnType="String" visibility="public"/>
+        <Method name="setCombustible" returnType="void" visibility="public">
+          <Argument type="String" name="combustible"/>
+        </Method>
+        <Method name="getPatente" returnType="String" visibility="public"/>
+        <Method name="setPatente" returnType="void" visibility="public">
+          <Argument type="String" name="patente"/>
+        </Method>
+        <Method name="isAire_acondicionado" returnType="boolean" visibility="public"/>
+        <Method name="setAire_acondicionado" returnType="void" visibility="public">
+          <Argument type="boolean" name="aire_acondicionado"/>
+        </Method>
+        <Method name="isCalefaccion" returnType="boolean" visibility="public"/>
+        <Method name="setCalefaccion" returnType="void" visibility="public">
+          <Argument type="boolean" name="calefaccion"/>
+        </Method>
+        <Method name="getCantidad_de_asientos" returnType="short" visibility="public"/>
+        <Method name="setCantidad_de_asientos" returnType="void" visibility="public">
+          <Argument type="short" name="cantidad_de_asientos"/>
+        </Method>
+        <Method name="getCapacidad_baul" returnType="String" visibility="public"/>
+        <Method name="setCapacidad_baul" returnType="void" visibility="public">
+          <Argument type="String" name="capacidad_baul"/>
+        </Method>
+        <Method name="getFoto" returnType="String" visibility="public"/>
+        <Method name="setFoto" returnType="void" visibility="public">
+          <Argument type="String" name="foto"/>
+        </Method>
+        <Method name="getCalificacion" returnType="short" visibility="public"/>
+        <Method name="setCalificacion" returnType="void" visibility="public">
+          <Argument type="short" name="calificacion"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AutoDB" package="ViajarDB" visibility="public" xPosition="320.0" yPosition="820.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getViajeAuto" returnType="Auto" visibility="public">
+          <Argument type="int" name="idViaje"/>
+        </Method>
+        <Method name="addCar" returnType="void" visibility="public">
+          <Argument type="String" name="marca"/>
+          <Argument type="String" name="modelo"/>
+          <Argument type="String" name="color"/>
+          <Argument type="String" name="combustible"/>
+          <Argument type="String" name="patente"/>
+          <Argument type="int" name="aire"/>
+          <Argument type="int" name="calefaccion"/>
+          <Argument type="String" name="cantAsientos"/>
+          <Argument type="String" name="calificacion"/>
+          <Argument type="String" name="baul"/>
+          <Argument type="int" name="idUsuario"/>
+        </Method>
+        <Method name="updateCar" returnType="void" visibility="public">
+          <Argument type="String" name="marca"/>
+          <Argument type="String" name="modelo"/>
+          <Argument type="String" name="color"/>
+          <Argument type="String" name="combustible"/>
+          <Argument type="String" name="patente"/>
+          <Argument type="String" name="aire"/>
+          <Argument type="String" name="calefaccion"/>
+          <Argument type="String" name="cantAsientos"/>
+          <Argument type="String" name="calificacion"/>
+          <Argument type="String" name="baul"/>
+          <Argument type="int" name="idAuto"/>
+        </Method>
+        <Method name="deleteCar" returnType="void" visibility="public">
+          <Argument type="int" name="id_auto"/>
+        </Method>
+        <Method name="ObtenerAutosUsuario" returnType="ArrayList&lt;Auto&gt;" visibility="public">
+          <Argument type="int" name="idUsuario"/>
+        </Method>
+        <Method name="ObtenerDatosAuto" returnType="Auto" visibility="public">
+          <Argument type="int" name="idAuto"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Calificacion" package="ViajarDB" visibility="public" xPosition="620.0" yPosition="820.0">
+      <Fields>
+        <Field name="id_calificacion" type="int" visibility="private"/>
+        <Field name="puntuacion" type="int" visibility="private"/>
+        <Field name="comentario" type="String" visibility="private"/>
+        <Field name="idViaje" type="int" visibility="private"/>
+        <Field name="idUsuario" type="int" visibility="private"/>
+        <Field name="idAuto" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="id_calificacion"/>
+          <Argument type="int" name="puntuacion"/>
+          <Argument type="String" name="comentario"/>
+          <Argument type="int" name="idViaje"/>
+          <Argument type="int" name="idUsuario"/>
+          <Argument type="int" name="idAuto"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId_calificacion" returnType="int" visibility="public"/>
+        <Method name="setId_calificacion" returnType="void" visibility="public">
+          <Argument type="int" name="id_calificacion"/>
+        </Method>
+        <Method name="getPuntuacion" returnType="int" visibility="public"/>
+        <Method name="setPuntuacion" returnType="void" visibility="public">
+          <Argument type="int" name="puntuacion"/>
+        </Method>
+        <Method name="getComentario" returnType="String" visibility="public"/>
+        <Method name="setComentario" returnType="void" visibility="public">
+          <Argument type="String" name="comentario"/>
+        </Method>
+        <Method name="getIdUsuario" returnType="int" visibility="public"/>
+        <Method name="setIdUsuario" returnType="void" visibility="public">
+          <Argument type="int" name="idUsuario"/>
+        </Method>
+        <Method name="getIdviaje" returnType="int" visibility="public"/>
+        <Method name="setIdviaje" returnType="void" visibility="public">
+          <Argument type="int" name="idviaje"/>
+        </Method>
+        <Method name="getIdAuto" returnType="int" visibility="public"/>
+        <Method name="setIdAuto" returnType="void" visibility="public">
+          <Argument type="int" name="idAuto"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Ciudad" package="ViajarDB" visibility="public" xPosition="920.0" yPosition="820.0">
+      <Fields>
+        <Field name="id_ciudad" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="id_ciudad"/>
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId_ciudad" returnType="int" visibility="public"/>
+        <Method name="setId_ciudad" returnType="void" visibility="public">
+          <Argument type="int" name="id_ciudad"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CiudadDB" package="ViajarDB" visibility="public" xPosition="1220.0" yPosition="820.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getCiudades" returnType="ArrayList&lt;Ciudad&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DbManager" package="ViajarDB" visibility="public" isAbstract="true" xPosition="1520.0" yPosition="820.0">
+      <Fields>
+        <Field name="st" type="PreparedStatement" visibility="private" isStatic="true"/>
+        <Field name="conn" type="Connection" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="GET_RESULT_SET" returnType="ResultSet" visibility="public" isStatic="true" isFinal="true">
+          <Argument type="String" name="consulta"/>
+        </Method>
+        <Method name="closeConections" returnType="void" visibility="public" isFinal="true"/>
+        <Method name="InsertSql" returnType="int" visibility="public" isFinal="true">
+          <Argument type="String" name="consulta"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Usuario" package="ViajarDB" visibility="public" xPosition="1820.0" yPosition="820.0">
+      <Fields>
+        <Field name="id_usuario" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="telefono" type="String" visibility="private"/>
+        <Field name="direccion" type="String" visibility="private"/>
+        <Field name="ciudad" type="String" visibility="private"/>
+        <Field name="fecha_nacimiento" type="Date" visibility="private"/>
+        <Field name="mail" type="String" visibility="private"/>
+        <Field name="pass" type="String" visibility="private"/>
+        <Field name="imagen" type="String" visibility="private"/>
+        <Field name="genero" type="String" visibility="private"/>
+        <Field name="activo" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="mail"/>
+          <Argument type="String" name="pass"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="idUsuario"/>
+          <Argument type="String" name="genero"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="id_usuario"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="String" name="telefono"/>
+          <Argument type="String" name="direccion"/>
+          <Argument type="String" name="ciudad"/>
+          <Argument type="Date" name="fecha_de_nacimiento"/>
+          <Argument type="String" name="mail"/>
+          <Argument type="String" name="pass"/>
+          <Argument type="String" name="genero"/>
+          <Argument type="boolean" name="activo"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="id_usuario"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="String" name="telefono"/>
+          <Argument type="String" name="direccion"/>
+          <Argument type="String" name="ciudad"/>
+          <Argument type="Date" name="fecha_nacimiento"/>
+          <Argument type="String" name="mail"/>
+          <Argument type="String" name="pass"/>
+          <Argument type="String" name="imagen"/>
+          <Argument type="String" name="genero"/>
+          <Argument type="boolean" name="activo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCiudad" returnType="String" visibility="public"/>
+        <Method name="setCiudad" returnType="void" visibility="public">
+          <Argument type="String" name="ciudad"/>
+        </Method>
+        <Method name="isActivo" returnType="boolean" visibility="public"/>
+        <Method name="setActivo" returnType="void" visibility="public">
+          <Argument type="boolean" name="activo"/>
+        </Method>
+        <Method name="getId_usuario" returnType="int" visibility="public"/>
+        <Method name="setId_usuario" returnType="void" visibility="public">
+          <Argument type="int" name="id_usuario"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="void" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getTelefono" returnType="String" visibility="public"/>
+        <Method name="setTelefono" returnType="void" visibility="public">
+          <Argument type="String" name="telefono"/>
+        </Method>
+        <Method name="getDireccion" returnType="String" visibility="public"/>
+        <Method name="setDireccion" returnType="void" visibility="public">
+          <Argument type="String" name="direccion"/>
+        </Method>
+        <Method name="getMail" returnType="String" visibility="public"/>
+        <Method name="setMail" returnType="void" visibility="public">
+          <Argument type="String" name="mail"/>
+        </Method>
+        <Method name="getFecha_nacimiento" returnType="Date" visibility="public"/>
+        <Method name="setFecha_nacimiento" returnType="void" visibility="public">
+          <Argument type="Date" name="fecha_nacimiento"/>
+        </Method>
+        <Method name="getPass" returnType="String" visibility="public"/>
+        <Method name="setPass" returnType="void" visibility="public">
+          <Argument type="String" name="pass"/>
+        </Method>
+        <Method name="getImagen" returnType="String" visibility="public"/>
+        <Method name="setImagen" returnType="void" visibility="public">
+          <Argument type="String" name="imagen"/>
+        </Method>
+        <Method name="getGenero" returnType="String" visibility="public"/>
+        <Method name="setGenero" returnType="void" visibility="public">
+          <Argument type="String" name="genero"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="UsuarioDB" package="ViajarDB" visibility="public" xPosition="2120.0" yPosition="820.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getUsuarios" returnType="ArrayList&lt;Usuario&gt;" visibility="public"/>
+        <Method name="updateUser" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="String" name="direccion"/>
+          <Argument type="String" name="ciudad"/>
+          <Argument type="String" name="genero"/>
+          <Argument type="String" name="telefono"/>
+          <Argument type="String" name="fecha_nacimiento"/>
+          <Argument type="String" name="mail"/>
+          <Argument type="String" name="pass"/>
+        </Method>
+        <Method name="deleteCuenta" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="InsertUsuario" returnType="int" visibility="public" isFinal="true">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="String" name="telefono"/>
+          <Argument type="String" name="direccion"/>
+          <Argument type="String" name="fecha_nacimiento"/>
+          <Argument type="String" name="mail"/>
+          <Argument type="String" name="pass"/>
+          <Argument type="String" name="genero"/>
+          <Argument type="int" name="activo"/>
+          <Argument type="String" name="ciudad"/>
+        </Method>
+        <Method name="getUnUsuario" returnType="Usuario" visibility="public">
+          <Argument type="int" name="idUsuario"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Viaje" package="ViajarDB" visibility="public" xPosition="20.0" yPosition="1220.0">
+      <Fields>
+        <Field name="idViaje" type="int" visibility="private"/>
+        <Field name="origen" type="String" visibility="private"/>
+        <Field name="destino" type="String" visibility="private"/>
+        <Field name="gastosaproximados" type="double" visibility="package"/>
+        <Field name="fechaPartida" type="Date" visibility="package"/>
+        <Field name="horaPartida" type="Date" visibility="package"/>
+        <Field name="conductor" type="Usuario" visibility="package"/>
+        <Field name="lugar_salida" type="String" visibility="private"/>
+        <Field name="mascota" type="boolean" visibility="private"/>
+        <Field name="fumador" type="boolean" visibility="private"/>
+        <Field name="fecha_creacion" type="Date" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="origen"/>
+          <Argument type="String" name="destino"/>
+          <Argument type="double" name="gastosaproximados"/>
+          <Argument type="Date" name="fecha"/>
+          <Argument type="Date" name="hora"/>
+          <Argument type="Usuario" name="conductor"/>
+          <Argument type="String" name="lugar_salida"/>
+          <Argument type="boolean" name="mascota"/>
+          <Argument type="boolean" name="fumador"/>
+          <Argument type="Date" name="fecha_creacion"/>
+        </Constructor>
+        <Constructor visibility="package">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="origen"/>
+          <Argument type="String" name="destino"/>
+          <Argument type="double" name="gastosaproximados"/>
+          <Argument type="Date" name="fecha"/>
+          <Argument type="Date" name="hora"/>
+          <Argument type="String" name="lugar_salida"/>
+          <Argument type="boolean" name="mascota"/>
+          <Argument type="boolean" name="fumador"/>
+          <Argument type="Date" name="fecha_creacion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdViaje" returnType="int" visibility="public"/>
+        <Method name="setIdViaje" returnType="void" visibility="public">
+          <Argument type="int" name="idViaje"/>
+        </Method>
+        <Method name="setOrigen" returnType="void" visibility="public">
+          <Argument type="String" name="origen"/>
+        </Method>
+        <Method name="getOrigen" returnType="String" visibility="public"/>
+        <Method name="setDestino" returnType="void" visibility="public">
+          <Argument type="String" name="destino"/>
+        </Method>
+        <Method name="getDestino" returnType="String" visibility="public"/>
+        <Method name="getGastosaproximados" returnType="double" visibility="public"/>
+        <Method name="setGastosaproximados" returnType="void" visibility="public">
+          <Argument type="double" name="gastosaproximados"/>
+        </Method>
+        <Method name="setFechaPartida" returnType="void" visibility="public">
+          <Argument type="Date" name="fechora"/>
+        </Method>
+        <Method name="getFechaPartida" returnType="Date" visibility="public"/>
+        <Method name="getHoraPartida" returnType="Date" visibility="public"/>
+        <Method name="setHoraPartida" returnType="void" visibility="public">
+          <Argument type="Date" name="horaPartida"/>
+        </Method>
+        <Method name="setConductor" returnType="void" visibility="public">
+          <Argument type="Usuario" name="conductor"/>
+        </Method>
+        <Method name="getConductor" returnType="Usuario" visibility="public"/>
+        <Method name="getLugar_salida" returnType="String" visibility="public"/>
+        <Method name="setLugar_salida" returnType="void" visibility="public">
+          <Argument type="String" name="lugar_salida"/>
+        </Method>
+        <Method name="isMascota" returnType="boolean" visibility="public"/>
+        <Method name="setMascota" returnType="void" visibility="public">
+          <Argument type="boolean" name="mascota"/>
+        </Method>
+        <Method name="isFumador" returnType="boolean" visibility="public"/>
+        <Method name="setFumador" returnType="void" visibility="public">
+          <Argument type="boolean" name="fumador"/>
+        </Method>
+        <Method name="getFecha_creacion" returnType="Date" visibility="public"/>
+        <Method name="setFecha_creacion" returnType="void" visibility="public">
+          <Argument type="Date" name="fecha_creacion"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ViajeDB" package="ViajarDB" visibility="public" xPosition="320.0" yPosition="1220.0">
+      <Fields>
+        <Field name="resul" type="ArrayList&lt;Viaje&gt;" visibility="private"/>
+        <Field name="consulta" type="String" visibility="private"/>
+        <Field name="misViajes" type="String[][]" visibility="private"/>
+        <Field name="arrCal" type="ArrayList&lt;Calificacion&gt;" visibility="private"/>
+        <Field name="viaje" type="Viaje" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getViajes" returnType="ArrayList&lt;Viaje&gt;" visibility="public"/>
+        <Method name="getViajesActuales" returnType="ArrayList&lt;Viaje&gt;" visibility="public"/>
+        <Method name="getViajesxCiudades" returnType="ArrayList&lt;Viaje&gt;" visibility="public">
+          <Argument type="String" name="ciudadOrigen"/>
+          <Argument type="String" name="ciudadDestino"/>
+        </Method>
+        <Method name="getViajesxFecha" returnType="ArrayList&lt;Viaje&gt;" visibility="public">
+          <Argument type="String" name="fecha"/>
+        </Method>
+        <Method name="getViajesxCiudadesxFecha" returnType="ArrayList&lt;Viaje&gt;" visibility="public">
+          <Argument type="String" name="ciudadOrigen"/>
+          <Argument type="String" name="ciudadDestino"/>
+          <Argument type="String" name="fecha"/>
+        </Method>
+        <Method name="getMisViajes" returnType="String[][]" visibility="public">
+          <Argument type="int" name="idUsuario"/>
+        </Method>
+        <Method name="getViajeUsuario" returnType="Viaje" visibility="public">
+          <Argument type="int" name="idViaje"/>
+        </Method>
+        <Method name="getCantidadAsientos" returnType="int" visibility="public">
+          <Argument type="int" name="idViaje"/>
+        </Method>
+        <Method name="existeUsuarioEnViaje" returnType="boolean" visibility="public">
+          <Argument type="int" name="idViaje"/>
+          <Argument type="int" name="idUsuario"/>
+        </Method>
+        <Method name="insertarUsuarioEnViaje" returnType="void" visibility="public">
+          <Argument type="int" name="idViaje"/>
+          <Argument type="int" name="idUsuario"/>
+          <Argument type="int" name="idAuto"/>
+        </Method>
+        <Method name="insertarCalificacion" returnType="void" visibility="public">
+          <Argument type="int" name="idViaje"/>
+          <Argument type="int" name="idUsuario"/>
+          <Argument type="int" name="idAuto"/>
+          <Argument type="int" name="puntaje"/>
+          <Argument type="String" name="descripcion"/>
+        </Method>
+        <Method name="obtenerCalificacion" returnType="Calificacion" visibility="public">
+          <Argument type="int" name="idViaje"/>
+          <Argument type="int" name="idUsuario"/>
+        </Method>
+        <Method name="obtenerCalificacionesConductor" returnType="ArrayList&lt;Calificacion&gt;" visibility="public">
+          <Argument type="int" name="idAuto"/>
+          <Argument type="int" name="idPropietario"/>
+        </Method>
+        <Method name="updateViaje" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="origen"/>
+          <Argument type="String" name="destino"/>
+          <Argument type="double" name="gastos"/>
+          <Argument type="String" name="fechayHoraPartida"/>
+          <Argument type="String" name="lugar"/>
+          <Argument type="int" name="mascota"/>
+          <Argument type="int" name="fumador"/>
+          <Argument type="String" name="hoy"/>
+        </Method>
+        <Method name="insertViajeHasUsuario" returnType="void" visibility="public">
+          <Argument type="int" name="idViaje"/>
+          <Argument type="int" name="idUsuario"/>
+          <Argument type="int" name="idAuto"/>
+        </Method>
+        <Method name="insertViaje" returnType="int" visibility="public">
+          <Argument type="String" name="ciudadOrigen"/>
+          <Argument type="String" name="ciudadDestino"/>
+          <Argument type="double" name="gastos"/>
+          <Argument type="String" name="fecha"/>
+          <Argument type="String" name="hora"/>
+          <Argument type="String" name="lugarSalida"/>
+          <Argument type="int" name="mascota"/>
+          <Argument type="int" name="fumador"/>
+          <Argument type="String" name="hoy"/>
+        </Method>
+        <Method name="retirarseViaje" returnType="void" visibility="public">
+          <Argument type="int" name="idUsuario"/>
+          <Argument type="int" name="idViaje"/>
+        </Method>
+        <Method name="tieneViajesPendientes" returnType="Boolean" visibility="public">
+          <Argument type="int" name="idAuto"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="ViajarDB.ViajeDB" target="ViajarDB.Viaje" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Ventanas.Boton" target="Ventanas.Boton" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Ventanas.VentanaComentarios" target="ViajarDB.Calificacion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Ventanas.VentanaMisAutos" target="ViajarDB.Auto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Ventanas.VentanaMisViajes" target="Ventanas.FrameManager"/>
+    <UseRelation source="ViajarDB.AutoDB" target="ViajarDB.Auto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="ViajarDB.CiudadDB" target="ViajarDB.DbManager"/>
+    <HasRelation name="viaje" source="ViajarDB.ViajeDB" target="ViajarDB.Viaje" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ViajarDB.CiudadDB" target="ViajarDB.Ciudad" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ViajarDB.ViajeDB" target="ViajarDB.Calificacion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Ventanas.VentanaViajes" target="Ventanas.FrameManager"/>
+    <IsRelation name="is" source="Ventanas.Present" target="Ventanas.FrameManager"/>
+    <HasRelation name="auto" source="Ventanas.VentanaMisAutos" target="ViajarDB.Auto" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ViajarDB.UsuarioDB" target="ViajarDB.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Ventanas.VentanaComentarios" target="Ventanas.FrameManager"/>
+    <UseRelation source="ViajarDB.Auto" target="ViajarDB.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="ViajarDB.UsuarioDB" target="ViajarDB.DbManager"/>
+    <HasRelation name="autos" source="Ventanas.VentanaMisAutos" target="ViajarDB.AutoDB" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Ventanas.VentanaViajes" target="ViajarDB.Viaje" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="self" source="Ventanas.FrameManager" target="Ventanas.FrameManager" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Ventanas.VentanaServicios" target="Ventanas.FrameManager"/>
+    <UseRelation source="ViajarDB.Viaje" target="ViajarDB.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Ventanas.VentanaAuto" target="Ventanas.FrameManager"/>
+    <HasRelation name="conductor" source="ViajarDB.Auto" target="ViajarDB.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="arrCal" source="ViajarDB.ViajeDB" target="ViajarDB.Calificacion" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Calificacion&gt;"/>
+    <IsRelation name="is" source="Ventanas.VentanaCuenta" target="Ventanas.FrameManager"/>
+    <HasRelation name="conductor" source="ViajarDB.Viaje" target="ViajarDB.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Ventanas.VentanaEditarViaje" target="Ventanas.FrameManager"/>
+    <UseRelation source="Ventanas.VentanaMisViajes" target="ViajarDB.Calificacion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="usuarioActual" source="Ventanas.FrameManager" target="ViajarDB.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Ventanas.VentanaSumarseViaje" target="Ventanas.FrameManager"/>
+    <HasRelation name="arrViajes" source="Ventanas.VentanaViajes" target="ViajarDB.Viaje" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Viaje&gt;"/>
+    <IsRelation name="is" source="ViajarDB.AutoDB" target="ViajarDB.DbManager"/>
+    <IsRelation name="is" source="Ventanas.VentanaMisAutos" target="Ventanas.FrameManager"/>
+    <IsRelation name="is" source="Ventanas.VentanaAgregarViaje" target="Ventanas.FrameManager"/>
+    <HasRelation name="resul" source="ViajarDB.ViajeDB" target="ViajarDB.Viaje" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Viaje&gt;"/>
+    <IsRelation name="is" source="ViajarDB.ViajeDB" target="ViajarDB.DbManager"/>
+    <IsRelation name="is" source="Ventanas.VentanaQuienesSomos" target="Ventanas.FrameManager"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
