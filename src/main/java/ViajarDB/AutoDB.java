@@ -52,8 +52,9 @@ public class AutoDB extends DbManager {
     
     }
     
-     public void addCar(String marca, String modelo, String color,String combustible, String patente, String aire, String calefaccion, String cantAsientos, String calificacion, String baul, String id_usuario){
-        String SQL="'insert into auto(modelo,marca,color,combustible,patente,id_Auto,aireacondicionado,calefaccion,cantidad_de_asientos,calificacion,capacidad_de_baul,idUsusario) values ('"+marca+"','"+modelo+"','"+color+"','"+combustible+"','"+patente+"','"+aire+"','"+calefaccion+"','"+cantAsientos+"','"+calificacion+"','"+baul+"','" + id_usuario + "')'";
+     public void addCar(String marca, String modelo, String color,String combustible, String patente, int aire, int calefaccion, String cantAsientos, String calificacion, String baul, int idUsuario){
+        String SQL="insert into auto(modelo,marca,color,combustible,patente,aireacondicionado,calefaccion,cantidad_de_asientos,calificacion,capacidad_de_baul,id_propietario) values ('"+marca+"','"+modelo+"','"+color+"','"+combustible+"','"+patente+"',"+aire+","+calefaccion+",'"+cantAsientos+"','"+calificacion+"','"+baul+"',"+idUsuario+ ")";
+        System.out.println(SQL);
         super.InsertSql(SQL);
     }
     
@@ -83,7 +84,7 @@ public class AutoDB extends DbManager {
     }
     
     public void deleteCar(int id_auto){ 
-        String SQL="'delete from auto WHERE id_Auto='" + id_auto + "';'";
+        String SQL="update auto set cuenta = 0 WHERE id_Auto=" + id_auto + ";";
         super.InsertSql(SQL);
     }
     
