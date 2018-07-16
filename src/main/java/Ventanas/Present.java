@@ -103,7 +103,7 @@ public class Present extends FrameManager{
         gRes1.insets = new Insets(0,0,10,0);
         panel1.add(labelMail,gRes1);
        
-        textMail = new JTextField("lilianag@gmail.com");
+        textMail = new JTextField("juanp@gmail.com");
         textMail.setColumns(15);
         gRes1.gridx = 1;
         gRes1.gridwidth = GridBagConstraints.REMAINDER;
@@ -120,7 +120,7 @@ public class Present extends FrameManager{
         gRes1.insets = new Insets(0,0,10,0);
         panel1.add(labelPass,gRes1);
         
-        textPass = new JPasswordField("lili123");
+        textPass = new JPasswordField("1234");
         textPass.setColumns(15);
         gRes1.gridx = 1;
         gRes1.gridwidth =GridBagConstraints.REMAINDER;
