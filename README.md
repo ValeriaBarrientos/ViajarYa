@@ -12,9 +12,9 @@ Nos dirigimos a toda persona, en cualquier ciudad o pueblo que disponga de inter
 
 ## Notas
 Resolución de pantalla recomendada 1024 x 768
-###Usuarios de prueba 
-		mail: juanp@gmail.com  pass:1234
-		mail: mariag@gmail.com  pass:1234
+### Usuarios de prueba 
+		* mail: juanp@gmail.com  pass:1234
+		* mail: mariag@gmail.com  pass:1234
 		
 ## Tecnologías utilizadas
 * MySql
