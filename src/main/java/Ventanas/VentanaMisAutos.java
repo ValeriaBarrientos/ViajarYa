@@ -336,18 +336,7 @@ public class VentanaMisAutos extends FrameManager{
         resa2.insets = new Insets(10,0,10,0);
         panelDetalleAuto2.add(textCalificacion,resa2);
      
-        
-      /*  JPanel panelDetalleAuto3 = new JPanel();
-        panelDetalleAuto3.setLayout(new FlowLayout(FlowLayout.CENTER, 100,0));
-        panelDetalleAuto3.setBackground(Color.WHITE);
-        JLabel labelCalificacion=new JLabel("Calificacion: ");
-        labelCalificacion.setHorizontalAlignment(JLabel.CENTER);
-        
-        panelDetalleAuto3.add(labelCalificacion);
-        textCalificacion=new JTextField("                 ");
-        panelDetalleAuto3.add(textCalificacion);*/
-        
-        
+     
         
         
         
