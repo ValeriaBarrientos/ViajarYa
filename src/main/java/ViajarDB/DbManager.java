@@ -5,8 +5,11 @@
  */
 package ViajarDB;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URLDecoder;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -88,13 +91,21 @@ public abstract class DbManager {
 	InputStream input = null;
         InfoDataBase infoDb = new InfoDataBase();
         // Parametros por defecto
-        infoDb.url = "jdbc:mysql://localhost:3306/viajarya";
-        infoDb.user = "root";
-        infoDb.pass = "admin";
 
 	try {
-                input = DbManager.class.getClassLoader().getResourceAsStream("config.properties");
-		// load a properties file
+                //Obtiene config desde la carpeta del jar
+                File jarPath=new File(DbManager.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+                String propertiesPath=jarPath.getParentFile().getAbsolutePath();
+                input = new FileInputStream(propertiesPath+"/config.properties");
+		if (input == null)
+                {
+                    // no encontro la configuracion
+                    infoDb.url = "jdbc:mysql://localhost:3306/viajarya";
+                    infoDb.user = "root";
+                    infoDb.pass = "admin";
+                    return infoDb;
+                }
+                // load a properties file
 		prop.load(input);
 
 		// get the property value and print it out
