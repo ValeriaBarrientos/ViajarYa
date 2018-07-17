@@ -30,11 +30,11 @@ Resolución de pantalla recomendada 1024 x 768
 * GitExtensions
 
 ## Autores
-*Liliana Gíboli
-*Leandro Mazza
-*Diego Diaz
-*Alejandro Campitelli
-*Valeria Barrientos
+* Liliana Gíboli
+* Leandro Mazza
+* Diego Diaz
+* Alejandro Campitelli
+* Valeria Barrientos
 
 
 
