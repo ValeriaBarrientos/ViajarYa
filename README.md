@@ -11,10 +11,16 @@ Tenemos como objetivo establecer puentes de conexión entre nuestros usuarios, p
 Nos dirigimos a toda persona, en cualquier ciudad o pueblo que disponga de internet
 
 ## Notas
-Resolución de pantalla recomendada 1024 x 768
+Versión ejecutable : carpeta JarVersionFinal
+Para installar la base de datos, ejecutar desde MySql el scrip ViajarYa_dump.sql
+Editar el archivo config.properties indicando su usuario y contraseña de MySql
+Para abrir la aplicación ejecute el archivo launchViajarYa.bat
+
 ### Usuarios de prueba 
 		* mail: juanp@gmail.com  pass:1234
 		* mail: mariag@gmail.com  pass:1234
+
+Resolución de pantalla recomendada 1024 x 768
 		
 ## Tecnologías utilizadas
 * MySql
