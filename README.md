@@ -12,9 +12,9 @@ Nos dirigimos a toda persona, en cualquier ciudad o pueblo que disponga de inter
 
 ## Notas
 Versión ejecutable : carpeta JarVersionFinal.
- Para installar la base de datos, ejecutar desde MySql el scrip ViajarYa_dump.sql
- Editar el archivo config.properties indicando su usuario y contraseña de MySql
- Para abrir la aplicación ejecute el archivo launchViajarYa.bat
+* Para installar la base de datos, ejecutar desde MySql el scrip ViajarYa_dump.sql
+* Editar el archivo config.properties indicando su usuario y contraseña de MySql
+* Para abrir la aplicación ejecute el archivo launchViajarYa.bat
 
 ### Usuarios de prueba 
 		* mail: juanp@gmail.com  pass:1234
