@@ -1,9 +1,4 @@
 /target/test-classes/.netbeans_automatic_build
 /target/classes/.netbeans_automatic_build
-/target/test-classes
-/target/surefire
-/target/maven-archiver
-/target/generated-sources
-/target/classes
+/target
 *.class
-/target/viajarYaLog.txt
