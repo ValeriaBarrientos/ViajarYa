@@ -103,7 +103,7 @@ public class UsuarioDB extends DbManager{
       
        int autorizado = 0;
        
-       String SSQL = "insert into usuario(nombre,apellido,telefono,direccion,fecha_nacimiento,mail,pass,imagen,genero,activo,cuenta,ciudad) values "+
+       String SSQL = "insert into usuario(nombre,apellido,telefono,direccion,fecha_nacimiento,mail,pass,imagen,genero,activo,ciudad) values "+
                "( '"+nombre+"','"+apellido+"','"+telefono+"','"+direccion+"','"+fecha_nacimiento+"','"+mail+"','"+pass+"',' ','"+genero+"',"+activo+",'"+ciudad+"');";
        
        return super.InsertSql(SSQL);
