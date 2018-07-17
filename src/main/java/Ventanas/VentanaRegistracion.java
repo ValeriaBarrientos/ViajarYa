@@ -62,6 +62,10 @@ public class VentanaRegistracion extends FrameManager{
     
     public VentanaRegistracion(){
         super();
+        String usuario = ""; 
+        String pass = "";
+        //String usuario = "juanp@gmail.com";
+        //String pass = "1234";
 
         MyLog.write("Inicio VentanaRegistracion");
 
@@ -101,7 +105,7 @@ public class VentanaRegistracion extends FrameManager{
         gRes1.insets = new Insets(0,0,10,0);
         panel1.add(labelMail,gRes1);
        
-        textMail = new JTextField("juanp@gmail.com");
+        textMail = new JTextField(usuario);
         textMail.setColumns(15);
         gRes1.gridx = 1;
         gRes1.gridwidth = GridBagConstraints.REMAINDER;
@@ -118,7 +122,7 @@ public class VentanaRegistracion extends FrameManager{
         gRes1.insets = new Insets(0,0,10,0);
         panel1.add(labelPass,gRes1);
         
-        textPass = new JPasswordField("1234");
+        textPass = new JPasswordField(pass);
         textPass.setColumns(15);
         gRes1.gridx = 1;
         gRes1.gridwidth =GridBagConstraints.REMAINDER;
