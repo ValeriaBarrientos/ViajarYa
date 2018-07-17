@@ -184,7 +184,7 @@ public class VentanaMisAutos extends FrameManager{
         resa1.gridx=1;
         resa1.gridy=0;
         resa1.gridwidth= GridBagConstraints.REMAINDER;
-        resa1.insets = new Insets(10,0,10,0);
+        resa1.insets = new Insets(10,0,10,20);
         panelDetalleAuto1.add(textMarca,resa1);
       
         
@@ -199,7 +199,7 @@ public class VentanaMisAutos extends FrameManager{
         resa1.gridx=1;
         resa1.gridy=1;
         resa1.gridwidth=GridBagConstraints.REMAINDER;
-        resa1.insets = new Insets(10,0,10,0);
+        resa1.insets = new Insets(10,0,10,20);
         panelDetalleAuto1.add(textModelo,resa1);
        
         JLabel labelColor=new JLabel("Color: ");
@@ -213,12 +213,12 @@ public class VentanaMisAutos extends FrameManager{
         resa1.gridx=1;
         resa1.gridy=2;
         //resa1.gridwidth=1;
-        resa1.insets = new Insets(10,0,10,0);
+        resa1.insets = new Insets(10,0,10,20);
         panelDetalleAuto1.add(textColor,resa1);
        
         
          //PATENTE--------------------
-        JLabel laPatente = new JLabel("Patente:");  
+        JLabel laPatente = new JLabel("Patente: ");  
         laPatente.setFont(new Font("arial",3,12));
         laPatente.setForeground(Color.BLACK);
         laPatente.setHorizontalAlignment(JLabel.LEFT);
@@ -232,7 +232,7 @@ public class VentanaMisAutos extends FrameManager{
          resa1.gridx = 1;
          resa1.gridy = 3;
          resa1.gridwidth =1;
-         resa1.insets = new Insets(10,0,10,0);
+         resa1.insets = new Insets(10,0,10,20);
         panelDetalleAuto1.add(textPatente,resa1);
         
         
@@ -249,7 +249,7 @@ public class VentanaMisAutos extends FrameManager{
         resa1.gridx=1;
         resa1.gridy=4;
        // resa1.gridwidth=1;
-        resa1.insets = new Insets(10,0,10,0);
+        resa1.insets = new Insets(10,0,10,20);
         panelDetalleAuto1.add(textCombustible,resa1);
         
        
@@ -260,14 +260,14 @@ public class VentanaMisAutos extends FrameManager{
         panelDetalleAuto2.setBackground(Color.WHITE);
     
         
-        JLabel labelAire=new JLabel("Aire acondicionado:");
+        JLabel labelAire=new JLabel("Aire acondicionado: ");
         labelAire.setHorizontalAlignment(JLabel.LEFT);
         resa2.gridx=0;
         resa2.gridy=0;
         resa2.gridwidth=1;
         resa2.anchor = GridBagConstraints.EAST;
         resa2.fill = GridBagConstraints.HORIZONTAL;
-        resa2.insets = new Insets(10,0,10,0);
+        resa2.insets = new Insets(10,20,10,0);
         panelDetalleAuto2.add(labelAire,resa2);
        
         textAire=new JTextField("               ");
@@ -278,12 +278,12 @@ public class VentanaMisAutos extends FrameManager{
         panelDetalleAuto2.add(textAire,resa2);
         
         
-        JLabel labelCalefaccion=new JLabel("Calefaccion:");
+        JLabel labelCalefaccion=new JLabel("Calefaccion: ");
         labelCalefaccion.setHorizontalAlignment(JLabel.LEFT);
         resa2.gridx=0;
         resa2.gridy=1;
         resa2.gridwidth=1;
-        resa2.insets = new Insets(10,0,10,0);
+        resa2.insets = new Insets(10,20,10,0);
         panelDetalleAuto2.add(labelCalefaccion,resa2);
       
         textCalefaccion=new JTextField("             ");
@@ -299,7 +299,7 @@ public class VentanaMisAutos extends FrameManager{
         resa2.gridx=0;
         resa2.gridy=2;
         resa2.gridwidth=1;
-        resa2.insets = new Insets(10,0,10,0);
+        resa2.insets = new Insets(10,20,10,0);
         panelDetalleAuto2.add(labelCantidad,resa2);
         textCantAsientos=new JTextField("               ");
         resa2.gridx=1;
@@ -313,9 +313,9 @@ public class VentanaMisAutos extends FrameManager{
         resa2.gridx=0;
         resa2.gridy=3;
         resa2.gridwidth=1;
-        resa2.insets = new Insets(10,0,10,0);
+        resa2.insets = new Insets(10,20,10,0);
         panelDetalleAuto2.add(labelBaul,resa2);
-        textBaul=new JTextField("                      ");
+        textBaul=new JTextField("               ");
         resa2.gridx=1;
         resa2.gridy=3;
         resa2.gridwidth=GridBagConstraints.REMAINDER;
@@ -323,11 +323,11 @@ public class VentanaMisAutos extends FrameManager{
         panelDetalleAuto2.add(textBaul,resa2);
         
         JLabel labelCalificacion=new JLabel("Calificacion: ");
-        labelCalificacion.setHorizontalAlignment(JLabel.CENTER);
+        labelCalificacion.setHorizontalAlignment(JLabel.LEFT);
         resa2.gridx=0;
         resa2.gridy=4;
         resa2.gridwidth=1;
-        resa2.insets = new Insets(10,0,10,0);
+        resa2.insets = new Insets(10,20,10,0);
         panelDetalleAuto2.add(labelCalificacion,resa2);
         textCalificacion=new JTextField("                 ");
         resa2.gridx=1;
