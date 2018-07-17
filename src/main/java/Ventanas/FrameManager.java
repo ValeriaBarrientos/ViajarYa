@@ -99,7 +99,7 @@ public abstract class FrameManager extends JFrame {
                     
                 }
                 else  {  
-                  Present log = new Present();
+                  VentanaRegistracion log = new VentanaRegistracion();
                   log.setVisible(true);
                   self.setVisible(false);
                 }

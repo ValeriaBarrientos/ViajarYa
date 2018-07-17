@@ -5,11 +5,14 @@
  */
 package ViajarDB;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
 
 /**
  *
@@ -22,17 +25,19 @@ public abstract class DbManager {
     
      public static final ResultSet GET_RESULT_SET(String consulta) {
        ResultSet resultSet = null; 
+       InfoDataBase infoDb = mySqlInfo();
+       
        try {        
-       String url = "jdbc:mysql://localhost:3306/viajarya";
-       conn = DriverManager.getConnection(url, "root", "admin");
+      
+       conn = DriverManager.getConnection(infoDb.url, infoDb.user,infoDb.pass);
        st = conn.prepareStatement(consulta);
        resultSet = st.executeQuery();
        //st.close();
        //conn.close();
       } 
       catch (SQLException ex) {
+        MyLog.write(ex);
         ex.printStackTrace();
-        
       } 
       
       return resultSet;
@@ -48,12 +53,14 @@ public abstract class DbManager {
       public  final int InsertSql(String consulta) {
       
         int claveGenerada = 0;
+        InfoDataBase infoDb = mySqlInfo();
        
        try {        
-       
-        String url = "jdbc:mysql://localhost:3306/viajarya";
+        
+    
         //String url = "jdbc:mysql://localhost:3306/mydb?serverTimezone=UTC";
-       conn = DriverManager.getConnection(url, "root", "admin");
+     
+       conn = DriverManager.getConnection(infoDb.url, infoDb.user,infoDb.pass);
        st = conn.prepareStatement(consulta,PreparedStatement.RETURN_GENERATED_KEYS);
        st.executeUpdate();
        ResultSet rs = st.getGeneratedKeys();
@@ -69,26 +76,46 @@ public abstract class DbManager {
       
       } 
       catch (SQLException ex) {
+        MyLog.write(ex);
         ex.printStackTrace();
-        
-        
        }
        return claveGenerada;
        
      }
       
+    private static InfoDataBase mySqlInfo(){
+        Properties prop = new Properties();
+	InputStream input = null;
+        InfoDataBase infoDb = new InfoDataBase();
+        // Parametros por defecto
+        infoDb.url = "jdbc:mysql://localhost:3306/viajarya";
+        infoDb.user = "root";
+        infoDb.pass = "admin";
+
+	try {
+                input = DbManager.class.getClassLoader().getResourceAsStream("config.properties");
+		// load a properties file
+		prop.load(input);
+
+		// get the property value and print it out
+		infoDb.url=prop.getProperty("dburl");
+		infoDb.user=prop.getProperty("dbuser");
+		infoDb.pass=prop.getProperty("dbpassword");
+
+	} catch (IOException ex) {
+		ex.printStackTrace();
+	} finally {
+		if (input != null) {
+			try {
+				input.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+        return infoDb;
+        
+    }
+    
 }
-
-
-       
-
-    
-      
-      
-    
-    
-
-
-
-  
 

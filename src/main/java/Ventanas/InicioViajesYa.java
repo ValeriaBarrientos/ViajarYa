@@ -5,21 +5,21 @@
  */
 package Ventanas;
 
+import ViajarDB.MyLog;
 import ViajarDB.Usuario;
 
 /**
  *
  * @author vale2
  */
-public class PruebaVentanaViajes {
+public class InicioViajesYa {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       
-        
-        Present log = new Present();
+        MyLog.write("Inicio main");
+        VentanaRegistracion log = new VentanaRegistracion();
         log.setVisible(true);
        
         

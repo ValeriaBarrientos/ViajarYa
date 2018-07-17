@@ -8,6 +8,7 @@ package Ventanas;
 import static Ventanas.FrameManager.loguetin;
 import ViajarDB.Ciudad;
 import ViajarDB.CiudadDB;
+import ViajarDB.MyLog;
 import ViajarDB.Usuario;
 import ViajarDB.UsuarioDB;
 import com.toedter.calendar.JDateChooser;
@@ -44,7 +45,7 @@ import javax.swing.border.TitledBorder;
  *
  * @author vale2
  */
-public class Present extends FrameManager{
+public class VentanaRegistracion extends FrameManager{
     
     private JTextField textMail;
     private JPasswordField textPass;
@@ -59,17 +60,14 @@ public class Present extends FrameManager{
    
     
     
-    public Present(){
-        
-        
-    
-        
+    public VentanaRegistracion(){
         super();
+
+        MyLog.write("Inicio VentanaRegistracion");
+
         java.util.Locale.setDefault(java.util.Locale.forLanguageTag("es-AR"));
-        Present self = this;
-      
+        VentanaRegistracion self = this;
     //----Presentacion ------------------------------------
-       
     
         //----Loguin
         JPanel panel1 = new JPanel();
@@ -580,7 +578,7 @@ public class Present extends FrameManager{
         res.insets = new Insets(10,0 ,0,20);
         this.add(panel4,res);
        
-        
+        MyLog.write("Cargo VentanaRegistracion");
    }
     
 }
